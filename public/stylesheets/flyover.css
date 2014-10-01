@@ -1,0 +1,21 @@
+body{
+    background-color:black;
+}
+#container{
+    width:800px;
+    height:600px;
+    border:1px solid black;
+    margin:auto;
+}
+#container, #collection, #tickViewer{
+    display:inline-block;
+}
+#collection, #tickViewer{
+    color:white;
+    border:1px solid white;
+    top:0;
+    position:absolute;
+}
+#tickViewer{
+    left:0;
+}
