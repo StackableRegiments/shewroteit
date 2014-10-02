@@ -1,5 +1,5 @@
 $(function(){
-    var scale = 0.5;
+    var scale = 0.8;
     var tickRate = 30;
     var w = 1200;
     var h = 700;
