@@ -1,1 +1,10 @@
-<img src="/images/pages/{{page}}.png" alt="Page {{page}}" />
+<div>
+  <div>
+    <ol>
+      {{# pages}}<li><a href="/page/{{id}}">{{label}}</li>{{/pages}}
+    </ol>
+  </div>
+  <div>
+    <img src="/images/pages/{{page}}.png" alt="Page {{page}}" />
+  </div>
+</div>
