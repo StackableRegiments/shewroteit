@@ -1,10 +1,24 @@
 <div>
-  <div>
-    <ol>
-      {{# pages}}<li><a href="/page/{{id}}">{{label}}</a></li>{{/pages}}
-    </ol>
+  <div id="nav">
+    {{#each stories}}
+      <a class="story" href="/page/{{id}}/0">
+        <img class="thumbnail" src="/images/stories/{{id}}.png" />
+      </a>
+    {{/each}}
   </div>
   <div>
-    <img src="/images/pages/{{page}}.png" alt="Page {{page}}" />
+    {{#each story.pages}}
+      <a href="/page/{{../story.id}}/{{id}}">{{label}}</a>
+    {{/each}}
+  </div>
+  <div id="comic">
+    <img src="/images/pages/{{story.id}}/{{page.id}}.png" alt="Page {{page.id}}" />
+  </div>
+  <div id="comments">
+    {{#each page.comments}}
+      <ul>
+        {{#each this}}<li>{{this}}</li>{{/each}}
+      </ul>
+    {{/each}}
   </div>
 </div>
