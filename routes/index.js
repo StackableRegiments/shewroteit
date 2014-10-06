@@ -12,8 +12,8 @@ var stories = [
                     "P: Yes.  We're reading a comic about the website that we're on, which explains how to make this website and how to make other ones."
                 ]
             ]},
-            {id:1,label:"Web servers"},
-            {id:2,label:"Evaluation"}
+            {id:1,label:"The Web server"},
+            {id:2,label:"Writing the response"}
         ]
     },
     {
