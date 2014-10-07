@@ -29,20 +29,31 @@ var stories = [
                 ]
             ]}
         ]
+    },
+    {
+	id:2,
+	pages:[
+            {id:0,label:"Crazy Frog 1",comments:[]},
+            {id:1,label:"Crazy Frog 2",comments:[]},
+            {id:2,label:"Crazy Frog 3",comments:[]},
+            {id:3,label:"Crazy Frog 4",comments:[]},
+            {id:4,label:"Crazy Frog 5",comments:[]}
+	]
     }
 ];
 router.get('/page/:story/:page', function(req, res) {
     var storyId = parseInt(req.params.story);
     var pageId = parseInt(req.params.page);
-    var story = _.find(stories, function(s){
+    var viewStories = _.cloneDeep(stories);
+    var story = _.find(viewStories, function(s){
         return s.id == storyId;
     });
+    story.active = true;
     var page = _.find(story.pages, function(p){
         return p.id == pageId;
     });
-    console.log(storyId,pageId,story,page);
     res.render('page', {
-        stories:stories,
+        stories:viewStories,
         page:page,
         story:story
     });

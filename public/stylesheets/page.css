@@ -1,3 +1,9 @@
-.story .thumbnail{
-    height:200px;
+#comic img, .story img, .story{
+    width:100%;
+}
+.story{
+    display:inline-block;
+}
+#titleSection{
+    margin:auto;
 }
