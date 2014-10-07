@@ -43,7 +43,7 @@ var stories = [
     {
 	id:3,
 	pages:[
-	    {id:0,label:"Batman was sad.  He had no friends.",comments:[]},
+	    {id:0,label:"Batman was sad.",comments:[]},
 	    {id:1,label:"Robin tried to help.",comments:[]},
 	    {id:2,label:"Batman wasn't sure.",comments:[]},
 	    {id:3,label:"The Cave.",comments:[]},
