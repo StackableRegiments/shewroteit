@@ -1,6 +1,8 @@
-<div>
-  <div class="col-md-3">
-    <div id="nav">
+<div class="container">
+  <div id="titleSection">
+  </div>
+  <div>
+    <div id="stories">
       {{#each stories}}
         <div class="story">
           <a href="/page/{{id}}/0">
@@ -19,7 +21,7 @@
       {{/each}}
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-9">
     <div id="comic">
       <img src="/images/pages/{{story.id}}/{{page.id}}.png" alt="Page {{page.id}}" />
     </div>

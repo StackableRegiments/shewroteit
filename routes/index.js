@@ -39,6 +39,19 @@ var stories = [
             {id:3,label:"Crazy Frog 4",comments:[]},
             {id:4,label:"Crazy Frog 5",comments:[]}
 	]
+    },
+    {
+	id:3,
+	pages:[
+	    {id:0,label:"Batman was sad.  He had no friends.",comments:[]},
+	    {id:1,label:"Robin tried to help.",comments:[]},
+	    {id:2,label:"Batman wasn't sure.",comments:[]},
+	    {id:3,label:"The Cave.",comments:[]},
+	    {id:4,label:"A new tack.",comments:[]},
+	    {id:5,label:"Concern.",comments:[]},
+	    {id:6,label:"An old friend.",comments:[]},
+	    {id:7,label:"Ennui.",comments:[]}
+	]
     }
 ];
 router.get('/page/:story/:page', function(req, res) {
