@@ -62,7 +62,9 @@ router.get('/', function(req,res) {
     res.redirect('/page/0/0');
 });
 router.get('/about', function(req,res) {
-    res.render('about');
+    res.render('about',{
+	about:true
+    });
 });
 router.get('/page/:story/:page', function(req, res) {
     var storyId = parseInt(req.params.story);

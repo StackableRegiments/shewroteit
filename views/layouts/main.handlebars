@@ -12,7 +12,7 @@
   <body>
     <div class="container">
       <nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
+        <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsibleHeader">
               <span class="sr-only">Toggle navigation</span>
@@ -24,11 +24,11 @@
           </div>
           <div class="collapse navbar-collapse" id="collapsibleHeader">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="/page/0/0">Start</a></li>
-              <li><a href="/about">About Us</a></li>
+              <li {{#if stories}}class="active"{{/if}}><a href="/page/0/0">Start</a></li>
+              <li {{#if about}}class="active"{{/if}}><a href="/about" >About Us</a></li>
             </ul>
           </div>
-	</div>
+        </div>
       </nav>
       {{{body}}}
     </div>
