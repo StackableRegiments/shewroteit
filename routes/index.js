@@ -5,6 +5,7 @@ var router = express.Router();
 var stories = [
     {
         id:0,
+        label:"The Web",
         pages:[
             {id:0,label:"The Web",comments:[
                 [
@@ -18,6 +19,7 @@ var stories = [
     },
     {
         id:1,
+        label:"Code",
         pages:[
             {id:0,label:"Code",comments:[
                 [
@@ -31,29 +33,37 @@ var stories = [
         ]
     },
     {
-	id:2,
-	pages:[
+        id:2,
+        label:"Crazy Frog",
+        pages:[
             {id:0,label:"Crazy Frog 1",comments:[]},
             {id:1,label:"Crazy Frog 2",comments:[]},
             {id:2,label:"Crazy Frog 3",comments:[]},
             {id:3,label:"Crazy Frog 4",comments:[]},
             {id:4,label:"Crazy Frog 5",comments:[]}
-	]
+        ]
     },
     {
-	id:3,
-	pages:[
-	    {id:0,label:"Batman was sad.",comments:[]},
-	    {id:1,label:"Robin tried to help.",comments:[]},
-	    {id:2,label:"Batman wasn't sure.",comments:[]},
-	    {id:3,label:"The Cave.",comments:[]},
-	    {id:4,label:"A new tack.",comments:[]},
-	    {id:5,label:"Concern.",comments:[]},
-	    {id:6,label:"An old friend.",comments:[]},
-	    {id:7,label:"Ennui.",comments:[]}
-	]
+        id:3,
+        label:"Batman was Sad",
+        pages:[
+            {id:0,label:"Batman was sad.",comments:[]},
+            {id:1,label:"Robin tried to help.",comments:[]},
+            {id:2,label:"Batman wasn't sure.",comments:[]},
+            {id:3,label:"The Cave.",comments:[]},
+            {id:4,label:"A new tack.",comments:[]},
+            {id:5,label:"Concern.",comments:[]},
+            {id:6,label:"An old friend.",comments:[]},
+            {id:7,label:"Ennui.",comments:[]}
+        ]
     }
 ];
+router.get('/', function(req,res) {
+    res.redirect('/page/0/0');
+});
+router.get('/about', function(req,res) {
+    res.render('about');
+});
 router.get('/page/:story/:page', function(req, res) {
     var storyId = parseInt(req.params.story);
     var pageId = parseInt(req.params.page);

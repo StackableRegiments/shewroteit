@@ -1,20 +1,20 @@
-#comic img, .story img, .story{
+#comic img, .story img, #titleSection {
     width:100%;
 }
-#stories, #pageNav{
-    border-bottom:1px solid black;
+#stories, .page img{
+    margin-bottom:1em;
 }
 .story{
     width:20%;
     border:1px solid black;
+    display:inline-block;
 }
 #titleSection{
-    width:100%;
     text-align:center;
 }
-#pageNav{
-    list-style-type:none;
+.story .title, #stories, .page img {
+    border-bottom:1px solid black;
 }
-#pageNav li{
-    margin:1em;
+.story .title{
+    text-align:center;
 }

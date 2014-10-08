@@ -1,10 +1,6 @@
 $(function(){
-    $("#stories").isotope({
-	layoutMode:"fitRows",
-	itemSelector:".story"
-    });
-    $("#pageNav").isotope({
-	layoutMode:"fitRows",
-	itemSelector:"li"
+    $("#tiles").isotope({
+        layoutMode:"fitRows",
+        itemSelector:".tile"
     });
 });
