@@ -78,6 +78,13 @@ var stories = (function(){
                 {id:7,label:"Ennui.",comments:[]}
             ]
         },
+	{
+	    id:5,
+	    label:"Programming Languages",
+	    pages:[
+		{id:0,label:"Languages",comments:[]}
+	    ]
+	},
         {
             id:2,
             label:"Crazy Frog",
