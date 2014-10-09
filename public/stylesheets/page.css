@@ -1,4 +1,4 @@
-#comic img, .story img, #titleSection {
+#comic img, .story img, #titleSection, .page img {
     width:100%;
 }
 #stories, .page img{
