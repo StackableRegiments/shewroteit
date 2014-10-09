@@ -1,6 +1,6 @@
 <div>
   <div id="stories">
-    <h2>Pick a story</h2>
+    <h4>Pick a story...</h4>
     {{#each stories}}
       <div class="story">
         <div class="title">{{label}}</div>
@@ -14,15 +14,26 @@
     {{#if active}}
       {{#each pages}}
         <div class="page">
-          <div class="col-md-9">
+          <div class="col-md-8">
             <div>
               <img src="/images/pages/{{../id}}/{{id}}.png" alt="Page {{id}}" />
             </div>
           </div>
-          <div id="comments" class="col-md-3">
+          <div id="comments" class="col-md-4">
             {{#each comments}}
               <ul>
-                {{#each this}}<li>{{this}}</li>{{/each}}
+                {{#each this}}
+		  <div class="comment">
+		    <div class="media">
+		      <div class="pull-left">
+			<img class="media-object" src="/images/avatars/{{author}}.png" alt="{{author}} avatar" />
+		      </div>
+		      <div class="media-body">
+			<div>{{content}}</div>
+		      </div>
+		    </div>
+		  </div>
+                {{/each}}
               </ul>
             {{/each}}
           </div>
