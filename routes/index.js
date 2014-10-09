@@ -16,16 +16,16 @@ var stories = (function(){
             id:0,
             label:"The Web",
             pages:[
-		{id:0,label:"The Web",comments:[
+                {id:0,label:"The Web",comments:[
                     [
-			gp("So it's doing all this while we read it?"),
-			p("Yes.  We're reading a comic about the website that we're on, which explains how to make this website and how to make other ones.")
+                        gp("So it's doing all this while we read it?"),
+                        p("Yes.  We're reading a comic about the website that we're on, which explains how to make this website and how to make other ones.")
                     ]
-		]},
-		{id:1,label:"The Web server"},
-		{id:2,label:"Writing the response"}
+                ]},
+                {id:1,label:"The Web server"},
+                {id:2,label:"Writing the response"}
             ]
-	},
+        },
         {
             id:1,
             label:"Code",
@@ -38,18 +38,9 @@ var stories = (function(){
                         p("Yes.  I want to.  Also our Batman comics."),
                         gp("Yeah.")
                     ]
-                ]}
-            ]
-        },
-        {
-            id:2,
-            label:"Crazy Frog",
-            pages:[
-                {id:0,label:"Crazy Frog 1",comments:[]},
-                {id:1,label:"Crazy Frog 2",comments:[]},
-                {id:2,label:"Crazy Frog 3",comments:[]},
-                {id:3,label:"Crazy Frog 4",comments:[]},
-                {id:4,label:"Crazy Frog 5",comments:[]}
+                ]},
+                {id:1,label:"More code",comments:[]},
+                {id:2,label:"More code",comments:[]}
             ]
         },
         {
@@ -64,6 +55,17 @@ var stories = (function(){
                 {id:5,label:"Concern.",comments:[]},
                 {id:6,label:"An old friend.",comments:[]},
                 {id:7,label:"Ennui.",comments:[]}
+            ]
+        },
+	{
+            id:2,
+            label:"Crazy Frog",
+            pages:[
+                {id:0,label:"Crazy Frog 1",comments:[]},
+                {id:1,label:"Crazy Frog 2",comments:[]},
+                {id:2,label:"Crazy Frog 3",comments:[]},
+                {id:3,label:"Crazy Frog 4",comments:[]},
+                {id:4,label:"Crazy Frog 5",comments:[]}
             ]
         }
     ]})();
