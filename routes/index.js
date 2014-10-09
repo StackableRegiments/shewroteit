@@ -22,7 +22,12 @@ var stories = (function(){
                         p("Yes.  We're reading a comic about the website that we're on, which explains how to make this website and how to make other ones.")
                     ]
                 ]},
-                {id:1,label:"The Web server"},
+                {id:1,label:"The Web server",comments:[
+		    [
+			gp("Is it files?"),
+			p("Yes.  It's pretty much any file.  Anything you can save on your computer you can send down to someone else as a web response.")
+		    ]
+		]},
                 {id:2,label:"Writing the response"}
             ]
         },
@@ -39,8 +44,24 @@ var stories = (function(){
                         gp("Yeah.")
                     ]
                 ]},
-                {id:1,label:"More code",comments:[]},
-                {id:2,label:"More code",comments:[]}
+                {id:1,label:"More code",comments:[
+                    [
+                        gp("Lambda?"),
+                        p("Yes.  What about it?"),
+                        gp("What is it?"),
+                        p("Lambda is a letter in the Greek alphabet.  What it means in programming is a function that you can pass around.  Do you remember what a function is?"),
+                        gp("Yes.  It's when one thing goes in and comes out another thing."),
+                        p("Or the same thing.  It's a machine where something goes in and something comes out.  Can you think of any functions?"),
+                        gp("A?  Isn't A a function?"),
+                        p("Not in any of the languages I know.  It could be the NAME of a function, but it isn't itself a function.  It sounds more like a symbol.  Addition is a function.  It takes some numbers and gives back a number which is all of them added together.")
+                    ]
+                ]},
+                {id:2,label:"More code",comments:[
+		    [
+			p("Biff!  Bam!  Zowie!  Pow!  Tank!"),
+			gp("Dad.")
+		    ]
+		]}
             ]
         },
         {
@@ -57,7 +78,7 @@ var stories = (function(){
                 {id:7,label:"Ennui.",comments:[]}
             ]
         },
-	{
+        {
             id:2,
             label:"Crazy Frog",
             pages:[
@@ -68,13 +89,13 @@ var stories = (function(){
                 {id:4,label:"Crazy Frog 5",comments:[]}
             ]
         },
-	{
-	    id:4,
-	    label:"Batgirl comes back",
-	    pages:[
-		{id:0,label:"Batgirl comes back",comments:[]}
-	    ]
-	}
+        {
+            id:4,
+            label:"Batgirl comes back",
+            pages:[
+                {id:0,label:"Batgirl comes back",comments:[]}
+            ]
+        }
     ]})();
 router.get('/', function(req,res) {
     res.redirect('/page/0/0');

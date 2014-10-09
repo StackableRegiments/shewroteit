@@ -1,7 +1,7 @@
-#comic img, .story img, #titleSection, .page img {
+.story img, #titleSection, .comic{
     width:100%;
 }
-#stories, .page img{
+#stories, .comic{
     margin-bottom:1em;
 }
 .story{
@@ -12,7 +12,7 @@
 #titleSection{
     text-align:center;
 }
-.story .title, #stories, .page img {
+.story .title, #stories, .comic{
     border-bottom:1px solid black;
 }
 .story .title{
