@@ -67,7 +67,14 @@ var stories = (function(){
                 {id:3,label:"Crazy Frog 4",comments:[]},
                 {id:4,label:"Crazy Frog 5",comments:[]}
             ]
-        }
+        },
+	{
+	    id:4,
+	    label:"Batgirl comes back",
+	    pages:[
+		{id:0,label:"Batgirl comes back",comments:[]}
+	    ]
+	}
     ]})();
 router.get('/', function(req,res) {
     res.redirect('/page/0/0');
