@@ -481,6 +481,7 @@ $(function(){
                 if(k == 83) mouse.steering.down = true;
                 if(k == 32) mouse.firing = true;
             }
+	    return false;
         })
         .keyup(function(e){
             var k = e.which;
@@ -536,6 +537,7 @@ $(function(){
                 if(k == 83) mouse.steering.down = false;
                 if(k == 32) mouse.firing = false;
             }
+	    return false;
         });
     robot.image.onload = function(){
         robot.loaded = true;

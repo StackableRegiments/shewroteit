@@ -2,6 +2,15 @@ var express = require('express');
 var _ = require('lodash');
 var router = express.Router();
 
+var demos = (function(){
+    return [
+        {
+	    chapter:1,
+	    label:"Shoot the robots",
+	    id:0
+        }
+    ];
+})();
 var stories = (function(){
     var author = function(a){
         return function(s){
@@ -165,9 +174,9 @@ router.get('/about', function(req,res) {
         about:true
     });
 });
-router.get('/game/1', function(req,res) {
+router.get('/demo/1', function(req,res) {
     res.render('flyover', {
-	games:true
+	demos:demos
     });
 });
 router.get('/page/:story/:page', function(req, res) {
