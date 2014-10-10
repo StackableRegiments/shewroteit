@@ -1,6 +1,9 @@
 .story img, #titleSection, .comic{
     width:100%;
 }
+.story{
+    min-width:100px;
+}
 #stories, .comic{
     margin-bottom:1em;
 }
@@ -9,7 +12,7 @@
 }
 #stories, .comicHeader{
     padding-bottom:1em;
-    }
+}
 .title{
     margin-bottom:1em;
 }

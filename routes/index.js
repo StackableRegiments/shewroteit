@@ -153,7 +153,7 @@ var stories = (function(){
         }
     ];
     _.forEach(chapters,function(c){
-        c.chapter = "Chapter "+(c.ch);
+        c.chapter = c.ch+".";
     })
     return _.sortBy(chapters,"ch");
 })();
