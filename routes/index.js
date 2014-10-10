@@ -108,7 +108,11 @@ var stories = (function(){
 	    label:"Monads",
 	    pages:[
 		{id:0,label:"1"},
-		{id:1,label:"2"}
+		{id:1,label:"2"},
+		{id:2,label:"3"},
+		{id:3,label:"4"},
+		{id:4,label:"5"},
+		{id:5,label:"6"}
 	    ]
 	}
     ]})();
