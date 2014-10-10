@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/page.css">
+    <script src="/javascripts/lodash.min.js"></script>
     <script src="/javascripts/jquery-2.0.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <meta charset="utf-8">
@@ -25,6 +26,7 @@
           <div class="collapse navbar-collapse" id="collapsibleHeader">
             <ul class="nav navbar-nav">
               <li {{#if stories}}class="active"{{/if}}><a href="/page/0/0">Start</a></li>
+              <li {{#if games}}class="active"{{/if}}><a href="/game/1">Demos</a></li>
               <li {{#if about}}class="active"{{/if}}><a href="/about" >About Us</a></li>
             </ul>
           </div>

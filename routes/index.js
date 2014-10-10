@@ -165,6 +165,11 @@ router.get('/about', function(req,res) {
         about:true
     });
 });
+router.get('/game/1', function(req,res) {
+    res.render('flyover', {
+	games:true
+    });
+});
 router.get('/page/:story/:page', function(req, res) {
     var storyId = parseInt(req.params.story);
     var pageId = parseInt(req.params.page);

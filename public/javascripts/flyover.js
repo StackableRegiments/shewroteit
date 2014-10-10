@@ -32,7 +32,7 @@ $(function(){
         sprite.y = (h - sprite.height) / 2;
         return sprite;
     }
-    var mouse = defineShip("images/mouse.png", f(50), f(50));
+    var mouse = defineShip("/images/mouse.png", f(50), f(50));
     var assets = {}
     var words = [];
     var letters = [];
@@ -60,10 +60,10 @@ $(function(){
     var postDraw = [];
     var techTree = [
         (function(){
-            var drone = defineShip("images/mouse.png", f(25), f(25));
+            var drone = defineShip("/images/mouse.png", f(25), f(25));
             drone.speed = f(30);
             drone.installed = false;
-            return addTech("Fighter jet",["Wings","Jets"],"images/fighterJet.png",
+            return addTech("Fighter jet",["Wings","Jets"],"/images/fighterJet.png",
                            mouse.width,
                            mouse.height,
                            (function(){
@@ -90,7 +90,7 @@ $(function(){
         })(),
         //addTech("Space gun",["Space","Gun"]),
         //addTech("Mining laser",["Energy source","Crystal"]),
-        addTech("Black hole generator",["Time"],"images/blackHole.png",
+        addTech("Black hole generator",["Time"],"/images/blackHole.png",
                 mouse.width * 2,
                 mouse.height * 2,
                 (function(g){
@@ -136,7 +136,7 @@ $(function(){
                     bullets.push(b);
                     return b;
                 }),
-        addTech("Monkey bot",["Boxing gloves","Propellor cap","Monkey head"],"images/monkeyBot.png",
+        addTech("Monkey bot",["Boxing gloves","Propellor cap","Monkey head"],"/images/monkeyBot.png",
                 mouse.width,
                 mouse.height * 2,
                 (function(g){
@@ -167,7 +167,7 @@ $(function(){
                     b.slow = b.speed;
                     bullets.push(b);
                 }),
-        addTech("Gun",["Gunpowder","Bullets","Parts that are in a gun"],"images/bubblePipe.png",
+        addTech("Gun",["Gunpowder","Bullets","Parts that are in a gun"],"/images/bubblePipe.png",
                 mouse.width * 2,
                 mouse.height,
                 (function(g){
@@ -540,6 +540,6 @@ $(function(){
     robot.image.onload = function(){
         robot.loaded = true;
     };
-    robot.image.src = "images/robot.png";
+    robot.image.src = "/images/robot.png";
     draw();
 });
