@@ -9,7 +9,7 @@
 }
 #stories, .comicHeader{
     padding-bottom:1em;
-    }
+}
 .title{
     margin-bottom:1em;
 }
