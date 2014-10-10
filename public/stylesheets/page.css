@@ -15,7 +15,7 @@
 .story .title, #stories, .comic{
     border-bottom:1px solid black;
 }
-.story .title{
+.story .title, .chapterTitle{
     text-align:center;
 }
 .comment img{
