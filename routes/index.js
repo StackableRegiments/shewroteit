@@ -80,7 +80,7 @@ var stories = (function(){
         },
 	{
 	    id:5,
-	    label:"Programming Languages",
+	    label:"Prog Lang",
 	    pages:[
 		{id:0,label:"Languages",comments:[]}
 	    ]
@@ -102,7 +102,15 @@ var stories = (function(){
             pages:[
                 {id:0,label:"Batgirl comes back",comments:[]}
             ]
-        }
+        },
+	{
+	    id:6,
+	    label:"Monads",
+	    pages:[
+		{id:0,label:"1"},
+		{id:1,label:"2"}
+	    ]
+	}
     ]})();
 router.get('/', function(req,res) {
     res.redirect('/page/0/0');
