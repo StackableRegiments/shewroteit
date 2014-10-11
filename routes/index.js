@@ -129,7 +129,7 @@ var stories = (function(){
         },
         {
             id:2,
-            ch:5,
+            ch:10,
             label:"Crazy Frog",
             pages:[
                 {id:0,label:"Crazy Frog 1",comments:[]},
@@ -141,7 +141,7 @@ var stories = (function(){
         },
         {
             id:4,
-            ch:6,
+            ch:9,
             label:"Batgirl comes back",
             pages:[
                 {id:0,label:"Batgirl comes back",comments:[]}
@@ -159,7 +159,27 @@ var stories = (function(){
                 {id:4,label:"5"},
                 {id:5,label:"6"}
             ]
-        }
+        },
+	{
+	    id:7,
+	    ch:6,
+	    label:"Collision Detection",
+	    pages:[
+		{id:0},
+		{id:1}
+	    ]
+	},
+	{
+	    id:8,
+	    ch:5,
+	    label:"How games work",
+	    pages:[
+		{id:0,label:"Game 1"},
+		{id:1,label:"Game 2"},
+		{id:2,label:"Game 3"},
+		{id:3,label:"Game 4"}
+	    ]
+	}
     ];
     _.forEach(chapters,function(c){
         c.chapter = c.ch+".";
