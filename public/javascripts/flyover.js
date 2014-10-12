@@ -16,7 +16,7 @@ $(function(){
     var defineShip = function(src,width,height){
         var sprite = {
             image:new Image(),
-            maxRotation:Math.PI / 10,
+            maxRotation:Math.PI / 20,
             targetVector:0,
             vector:0,
             speed:f(10),
@@ -378,25 +378,29 @@ $(function(){
         });
     }
     var turnShip = function(){
-        var vectorDelta = Math.abs(mouse.targetVector - mouse.vector);
-        if(mouse.targetVector > mouse.vector)
-            mouse.vector += Math.min(vectorDelta, mouse.maxRotation);
-        else
-            mouse.vector -= Math.min(vectorDelta, mouse.maxRotation);
-    };
-    var advanceShip = function(){
-        var threshold = mouse.width;
-        var dy = mouse.targetY - mouse.y;
-        var dx = mouse.targetX - mouse.x;
-        var g = Math.atan2(dy,dx);
-        if(Math.abs(dy) < threshold && Math.abs(dx) < threshold){
-            mouse.targetVector = 0;
-            mouse.x = mouse.targetX;
-            mouse.y = mouse.targetY;
+        var delta = Math.min(mouse.maxRotation, Math.abs(mouse.targetVector - mouse.vector));
+        if(mouse.targetVector < mouse.vector){
+            mouse.vector -= delta;
         }
-        else{
-            mouse.x += Math.cos(g) * mouse.speed;
-            mouse.y += Math.sin(g) * mouse.speed;
+        else {
+            mouse.vector += delta;
+        }
+    }
+    var advanceShip = function(){
+        if(Math.abs(mouse.targetVector - mouse.vector) < Math.PI / 8){
+            var threshold = mouse.width;
+            var dy = mouse.targetY - mouse.y;
+            var dx = mouse.targetX - mouse.x;
+            if(Math.abs(dy) < threshold && Math.abs(dx) < threshold){
+                mouse.x = mouse.targetX;
+                mouse.y = mouse.targetY;
+                mouse.targetVector = 0;
+            }
+            else{
+                var g = Math.atan2(dy,dx);
+                mouse.x += Math.cos(g) * mouse.speed;
+                mouse.y += Math.sin(g) * mouse.speed;
+            }
         }
     }
     var tick = function(){
@@ -495,6 +499,7 @@ $(function(){
         var dx = tx - mouse.x;
         var dy = ty - mouse.y;
         mouse.targetVector = Math.atan2(dy,dx) + Math.PI / 2;
+        console.log(mouse.targetVector);
         mouse.targetX = tx;
         mouse.targetY = ty;
     });
