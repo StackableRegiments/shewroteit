@@ -503,7 +503,7 @@ $(function(){
         mouse.targetX = tx;
         mouse.targetY = ty;
     });
-    $("#keyboard").on("keypress",function(e){
+    $("#keyboard").on("keyup",function(e){
         var k = e.which;
         var s = String.fromCharCode(k).toLowerCase()[0];
         _.each(words,function(aWord){
