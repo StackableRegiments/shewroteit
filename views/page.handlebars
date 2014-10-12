@@ -27,25 +27,29 @@
       </div>
     </div>
   {{/each}}
-  <div id="footerNav">
-    <div class="col-md-4">
-      {{#if prev.available}}
-        <a href="{{prev.link}}">
-          <img src="/images/nav/left.png" alt="{{prev.label}}" />
-        </a>
-      {{/if}}
-    </div>
-    <div class="col-md-4">
-      <a href="/book">
-        <img src="/images/nav/center.png" alt="Home" />
-      </a>
-    </div>
-    <div class="col-md-4">
-      {{#if next.available}}
-        <a href="{{next.link}}">
-          <img src="/images/nav/right.png" alt="{{next.label}}" />
-        </a>
-      {{/if}}
-    </div>
+  <div id="footerNav" class="col-md-12">
+    <table>
+      <tr>
+	<td>
+	  {{#if prev.available}}
+            <a href="{{prev.link}}">
+              <img src="/images/nav/left.png" alt="{{prev.label}}" />
+            </a>
+	  {{/if}}
+	</td>
+	<td>
+	  <a href="/book">
+            <img src="/images/nav/center.png" alt="Home" />
+	  </a>
+	</td>
+	<td>
+	  {{#if next.available}}
+            <a href="{{next.link}}">
+              <img src="/images/nav/right.png" alt="{{next.label}}" />
+            </a>
+	  {{/if}}
+	</td>
+      </tr>
+    </table>
   </div>
 </div>
