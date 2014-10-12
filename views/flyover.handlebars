@@ -1,20 +1,12 @@
 <div>
-  <div id="demos">
-    {{#each demos}}
-      <a href="/demo/{{id}}">
-        <div class="story">
-          <div class="chapterTitle">{{chapter}}.</div>
-          <div class="title">{{label}}</div>
-          <img src="/images/demos/{{id}}.png" />
-        </div>
-      </a>
-    {{/each}}
-  </div>
-  <div class="col-md-8">
+  <div class="col-md-8" id="parent">
     <canvas id="scene"></canvas>
   </div>
   <div id="collection" class="col-md-4">
     <p>Assets</p>
+  </div>
+  <div class="col-md-8">
+    <input id="keyboard" placeholder="Type words here to capture them" />
   </div>
   <script src="/javascripts/requestAnimationFrame.js"></script>
   <script src="/javascripts/flyover.js"></script>

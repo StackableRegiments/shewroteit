@@ -1,4 +1,9 @@
-#collection, #tickViewer{
-    color:white;
-    border:1px solid white;
+#parent{
+    height:100%;
+}
+#scene{
+    height:50vh;
+}
+#keyboard{
+    width:100%;
 }

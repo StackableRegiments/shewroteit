@@ -1,26 +1,28 @@
 $(function(){
     var scale = 0.8;
     var tickRate = 30;
-    var w = 1200;
-    var h = 700;
+    var scene = $("#scene")
+    var parent = $("#parent");
+    var w = parent.width();
+    var h = parent.height();
+    console.log(w,h);
     var f = function(n){
         return n * scale;
     }
-    var scene = $("#scene")
-            .attr("height",h)
-            .attr("width",w);
+    scene.attr("height",h)
+        .attr("width",w);
     var context = scene[0].getContext("2d");
     var collection = $("#collection");
     var defineShip = function(src,width,height){
         var sprite = {
             image:new Image(),
+            maxRotation:Math.PI / 10,
+            targetVector:0,
+            vector:0,
             speed:f(10),
             width:f(width),
             height:f(height),
-            steering:{},
-            firing:false,
-            collecting:false,
-            inspecting:false,
+            firing:true,
             tech:[],
             drawable:false
         };
@@ -30,6 +32,8 @@ $(function(){
         sprite.image.src = src;
         sprite.x = (w - sprite.width) / 2;
         sprite.y = (h - sprite.height) / 2;
+        sprite.targetX = sprite.x;
+        sprite.targetY = sprite.y;
         return sprite;
     }
     var mouse = defineShip("/images/mouse.png", f(50), f(50));
@@ -227,10 +231,14 @@ $(function(){
     context.font = Math.round(f(24))+"px Arial";
     var twoPi = 2 * Math.PI;
     var drawBullet = function(b){
+        context.save();
+        context.translate(b.x,b.y);
+        context.rotate(b.vector);
         context.strokeStyle = b.color || bullet.color;
         context.beginPath();
-        context.arc(b.x,b.y,b.radius,twoPi, false);
+        context.arc(0,0,b.radius,twoPi, false);
         context.stroke();
+        context.restore();
     }
     var drawRobot = function(b){
         if(robot.loaded){
@@ -248,19 +256,27 @@ $(function(){
     };
     var draw = function(){
         tick();
-        context.fillStyle = mouse.collecting ? "gray" : "black";
+        context.fillStyle = "black";
         context.fillRect(0,0,w,h);
         context.fillStyle = "white";
         if(mouse.drawable){
+            var x = mouse.x;
+            var y = mouse.y;
+            var ox = -mouse.width / 2;
+            var oy = -mouse.height / 2;
+            context.save();
+            context.translate(x,y);
+            context.rotate(mouse.vector);
             _.each(mouse.tech, function(t){
                 context.drawImage(t.img,
-                                  mouse.x,mouse.y,
+                                  ox,oy,
                                   t.width,t.height);
             });
             context.drawImage(mouse.image,
-                              mouse.x,mouse.y,
+                              ox,oy,
                               mouse.width,mouse.height
                              );
+            context.restore();
         }
         _.each(bullets, drawBullet);
         _.each(robots,drawRobot);
@@ -361,46 +377,69 @@ $(function(){
             part:part
         });
     }
-
-    var tick = function(){
-        if(mouse.inspecting){
-            return;
+    var turnShip = function(){
+        var vectorDelta = Math.abs(mouse.targetVector - mouse.vector);
+        if(mouse.targetVector > mouse.vector)
+            mouse.vector += Math.min(vectorDelta, mouse.maxRotation);
+        else
+            mouse.vector -= Math.min(vectorDelta, mouse.maxRotation);
+    };
+    var advanceShip = function(){
+        var threshold = mouse.width;
+        var dy = mouse.targetY - mouse.y;
+        var dx = mouse.targetX - mouse.x;
+        var g = Math.atan2(dy,dx);
+        if(Math.abs(dy) < threshold && Math.abs(dx) < threshold){
+            mouse.targetVector = 0;
+            mouse.x = mouse.targetX;
+            mouse.y = mouse.targetY;
         }
-        if(mouse.steering.left && mouse.x > 0) mouse.x -= mouse.speed;
-        if(mouse.steering.up && mouse.y > 0) mouse.y -= mouse.speed;
-        if(mouse.steering.right && mouse.x < w - mouse.width) mouse.x += mouse.speed;
-        if(mouse.steering.down && mouse.y < h - mouse.height) mouse.y += mouse.speed;
+        else{
+            mouse.x += Math.cos(g) * mouse.speed;
+            mouse.y += Math.sin(g) * mouse.speed;
+        }
+    }
+    var tick = function(){
+        turnShip();
+        advanceShip();
         _.each(bullets,tickPlayerBullet);
         _.each(letters,tickLetter);
         _.each(words,tickWord);
         _.each(robots,tickRobot);
         if(mouse.firing){
             var wing = mouse.width / 4;
+            var ox = mouse.width / 2;
+            var oy = mouse.height / 2;
             var b1 = {
-                x:mouse.x + wing,
-                y:mouse.y,
+                x:mouse.x + wing - ox,
+                y:mouse.y - oy,
                 radius:bullet.radius,
                 width:bullet.radius,
+                vector:mouse.vector - Math.PI / 2,
                 height:bullet.radius,
                 active:true,
                 speed:bullet.speed,
                 tick:function(){
-                    b1.y -= b1.speed;
+                    b1.x += Math.cos(b1.vector) * b1.speed;
+                    b1.y += Math.sin(b1.vector) * b1.speed;
                 }
             };
             b1.fast = b1.speed;
             b1.slow = b1.fast / slowdown;
             bullets.push(b1);
             var b2 = {
-                x:mouse.x + mouse.width - wing,
-                y:mouse.y,
+                x:mouse.x + ox - wing,
+                y:mouse.y - oy,
                 radius:bullet.radius,
                 width:bullet.radius,
+                vector:mouse.vector - Math.PI / 2,
                 height:bullet.radius,
                 active:true,
                 speed:bullet.speed,
                 tick:function(){
-                    b2.y -= b2.speed;
+                    b2.x += Math.cos(b2.vector) * b2.speed;
+                    b2.y += Math.sin(b2.vector) * b2.speed;
+
                 }
             };
             b2.fast = b2.speed;
@@ -450,95 +489,47 @@ $(function(){
         collection.empty();
         _.each(assets,drawAsset);
     };
-    $(document)
-        .mousemove((function(){
-            var tickViewer = $("#tickViewer");
-            return function(e){
-                if(mouse.inspecting){
-                    var x = e.offsetX;
-                    var y = e.offsetY;
-                    var k = 20;
-                    var inspection = {
-                        width:k,
-                        height:k,
-                        x:x - k/2,
-                        y:y - k/2
-                    };
-                    _.each(robots,function(r){
-                        if(intersects(inspection,r)){
-                            tickViewer.text(tickRobot.toString());
-                        }
+    scene.on("click",function(e){
+        var tx = e.offsetX;
+        var ty = e.offsetY;
+        var dx = tx - mouse.x;
+        var dy = ty - mouse.y;
+        mouse.targetVector = Math.atan2(dy,dx) + Math.PI / 2;
+        mouse.targetX = tx;
+        mouse.targetY = ty;
+    });
+    $("#keyboard").on("keypress",function(e){
+        var k = e.which;
+        var s = String.fromCharCode(k).toLowerCase()[0];
+        _.each(words,function(aWord){
+            if(aWord.active){
+                if(aWord.text[0].toLowerCase() == s){
+                    letters.push({
+                        text:aWord.text[0],
+                        x:aWord.x,
+                        y:aWord.y,
+                        active:true
                     });
+                    aWord.text = aWord.text.substring(1);
                 }
-            }
-        })())
-        .keydown(function(e){
-            var k = e.which;
-            if(!mouse.collecting){
-                if(k == 65) mouse.steering.left = true;
-                if(k == 87) mouse.steering.up = true;
-                if(k == 68) mouse.steering.right = true;
-                if(k == 83) mouse.steering.down = true;
-                if(k == 32) mouse.firing = true;
-            }
-	    return false;
-        })
-        .keyup(function(e){
-            var k = e.which;
-            if(k == 192) {
-                mouse.inspecting = !mouse.inspecting;
-            }
-            if(k == 27) {
-                mouse.collecting = !mouse.collecting;
-                if(mouse.collecting){
-                    robot.speed = robot.slow;
-                    bullet.speed = bullet.slow;
-                }
-                else{
-                    robot.speed = robot.fast;
-                    bullet.speed = bullet.fast;
-                }
-            }
-            if(mouse.collecting){
-                var s = String.fromCharCode(k).toLowerCase()[0];
-                _.each(words,function(aWord){
-                    if(aWord.active){
-                        if(aWord.text[0].toLowerCase() == s){
-                            letters.push({
-                                text:aWord.text[0],
-                                x:aWord.x,
-                                y:aWord.y,
-                                active:true
-                            });
-                            aWord.text = aWord.text.substring(1);
-                        }
-                        if(aWord.text.length == 0){
-                            var tech = aWord.tech.name;
-                            var part = aWord.originalText;
-                            if(!(tech in assets)){
-                                assets[tech] = _.clone(aWord.tech);
-                            }
-                            assets[tech].parts[part]++;
-                            if(_.all(_.values(assets[tech].parts), function(v){
-                                return v > 0;
-                            })){
-                                install(aWord.tech);
-                            }
-                            drawAssets();
-                            aWord.active = false;
-                        }
+                if(aWord.text.length == 0){
+                    var tech = aWord.tech.name;
+                    var part = aWord.originalText;
+                    if(!(tech in assets)){
+                        assets[tech] = _.clone(aWord.tech);
                     }
-                });
+                    assets[tech].parts[part]++;
+                    if(_.all(_.values(assets[tech].parts), function(v){
+                        return v > 0;
+                    })){
+                        install(aWord.tech);
+                    }
+                    drawAssets();
+                    aWord.active = false;
+                }
             }
-            else{
-                if(k == 65) mouse.steering.left = false;
-                if(k == 87) mouse.steering.up = false;
-                if(k == 68) mouse.steering.right = false;
-                if(k == 83) mouse.steering.down = false;
-                if(k == 32) mouse.firing = false;
-            }
-	    return false;
         });
+    });
     robot.image.onload = function(){
         robot.loaded = true;
     };
