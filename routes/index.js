@@ -190,7 +190,7 @@ var stories = (function(){
     return _.sortBy(chapters,"ch");
 })();
 router.get('/', function(req,res) {
-    res.redirect('/page/0/0');
+    res.redirect('/book');
 });
 router.get('/about', function(req,res) {
     res.render('about',{
