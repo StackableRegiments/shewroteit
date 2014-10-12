@@ -5,9 +5,9 @@ var router = express.Router();
 var demos = (function(){
     return [
         {
-	    chapter:1,
-	    label:"Shoot the robots",
-	    id:0
+            chapter:1,
+            label:"Shoot the robots",
+            id:0
         }
     ];
 })();
@@ -124,7 +124,10 @@ var stories = (function(){
                         gp("..."),
                         p("Uh...  About Chapter 8?  I think?")
                     ]
-                ]}
+                ]},
+		{id:5,label:"More functions"},
+		{id:6,label:"Scope"},
+		{id:7,label:"Function state"}
             ]
         },
         {
@@ -160,26 +163,26 @@ var stories = (function(){
                 {id:5,label:"6"}
             ]
         },
-	{
-	    id:7,
-	    ch:6,
-	    label:"Collision Detection",
-	    pages:[
-		{id:0},
-		{id:1}
-	    ]
-	},
-	{
-	    id:8,
-	    ch:5,
-	    label:"How games work",
-	    pages:[
-		{id:0,label:"Game 1"},
-		{id:1,label:"Game 2"},
-		{id:2,label:"Game 3"},
-		{id:3,label:"Game 4"}
-	    ]
-	}
+        {
+            id:7,
+            ch:6,
+            label:"Collision Detection",
+            pages:[
+                {id:0},
+                {id:1}
+            ]
+        },
+        {
+            id:8,
+            ch:5,
+            label:"How games work",
+            pages:[
+                {id:0,label:"Game 1"},
+                {id:1,label:"Game 2"},
+                {id:2,label:"Game 3"},
+                {id:3,label:"Game 4"}
+            ]
+        }
     ];
     _.forEach(chapters,function(c){
         c.chapter = c.ch+".";
@@ -196,22 +199,24 @@ router.get('/about', function(req,res) {
 });
 router.get('/demo/1', function(req,res) {
     res.render('flyover', {
-	demos:demos
+        demos:demos
     });
+});
+router.get('/book', function(req,res) {
+    res.render('book', {
+        stories:stories
+    })
 });
 router.get('/page/:story/:page', function(req, res) {
     var storyId = parseInt(req.params.story);
     var pageId = parseInt(req.params.page);
-    var viewStories = _.cloneDeep(stories);
-    var story = _.find(viewStories, function(s){
+    var story = _.find(stories, function(s){
         return s.id == storyId;
     });
-    story.active = true;
     var page = _.find(story.pages, function(p){
         return p.id == pageId;
     });
     res.render('page', {
-        stories:viewStories,
         page:page,
         story:story
     });

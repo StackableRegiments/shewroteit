@@ -1,45 +1,35 @@
 <div>
-  <div id="stories">
-    {{#each stories}}
-      <a href="/page/{{id}}/0">
-	<div class="story">
-          <div class="chapterTitle">{{chapter}}</div>
-          <div class="title">{{label}}</div>
-          <img src="/images/stories/{{id}}.png" />
-	</div>
-      </a>
-    {{/each}}
-  </div>
-  {{#each stories}}
-    {{#if active}}
-      <h3 class="comicHeader">{{chapter}}: {{label}}</h3>
-      {{#each pages}}
-        <div class="page">
-          <div class="col-md-8">
-            <div>
-              <img class="comic" src="/images/pages/{{../id}}/{{id}}.png" alt="Page {{id}}" />
-            </div>
-          </div>
-          <div id="comments" class="col-md-4">
-            {{#each comments}}
-              <ul>
-                {{#each this}}
-                  <div class="comment">
-                    <div class="media">
-                      <div class="pull-left">
-                        <img class="media-object" src="/images/avatars/{{author}}.png" alt="{{author}} avatar" />
-                      </div>
-                      <div class="media-body">
-                        <div>{{content}}</div>
-                      </div>
-                    </div>
-                  </div>
-                {{/each}}
-              </ul>
-            {{/each}}
-          </div>
+  <h3 class="comicHeader">{{story.chapter}}: {{story.label}}</h3>
+  {{#each story.pages}}
+    <div class="page">
+      <div class="col-md-8">
+        <div>
+          <img class="comic" src="/images/pages/{{../story.id}}/{{id}}.png" alt="Page {{id}}" />
         </div>
-      {{/each}}
-    {{/if}}
+      </div>
+      <div id="comments" class="col-md-4">
+        {{#each comments}}
+          <ul>
+            {{#each this}}
+              <div class="comment">
+                <div class="media">
+                  <div class="pull-left">
+                    <img class="media-object" src="/images/avatars/{{author}}.png" alt="{{author}} avatar" />
+                  </div>
+                  <div class="media-body">
+                    <div>{{content}}</div>
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+          </ul>
+        {{/each}}
+      </div>
+    </div>
   {{/each}}
+  <div class="col-md-8">
+    <h3>
+      <a href="/book">Back to Table of Contents</a>
+    </h3>
+  </div>
 </div>
