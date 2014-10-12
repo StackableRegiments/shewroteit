@@ -1,7 +1,7 @@
 <div>
   <h3 class="comicHeader">{{story.chapter}}: {{story.label}}</h3>
   {{#each story.pages}}
-    <div class="page">
+    <div class="page clearfix">
       <div class="col-md-8">
         <div>
           <img class="comic" src="/images/pages/{{../story.id}}/{{id}}.png" alt="Page {{id}}" />
@@ -27,9 +27,25 @@
       </div>
     </div>
   {{/each}}
-  <div class="col-md-8">
-    <h3>
-      <a href="/book">Back to Table of Contents</a>
-    </h3>
+  <div id="footerNav">
+    <div class="col-md-4">
+      {{#if prev.available}}
+        <h3>
+          <a href="{{prev.link}}">Previous: {{prev.label}}</a>
+        </h3>
+      {{/if}}
+    </div>
+    <div class="col-md-4">
+      <h3>
+        <a href="/book">Back to Table of Contents</a>
+      </h3>
+    </div>
+    <div class="col-md-4">
+      {{#if next.available}}
+        <h3>
+          <a href="{{next.link}}">Next: {{next.label}}</a>
+        </h3>
+      {{/if}}
+    </div>
   </div>
 </div>

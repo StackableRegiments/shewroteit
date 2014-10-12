@@ -125,9 +125,9 @@ var stories = (function(){
                         p("Uh...  About Chapter 8?  I think?")
                     ]
                 ]},
-		{id:5,label:"More functions"},
-		{id:6,label:"Scope"},
-		{id:7,label:"Function state"}
+                {id:5,label:"More functions"},
+                {id:6,label:"Scope"},
+                {id:7,label:"Function state"}
             ]
         },
         {
@@ -213,12 +213,35 @@ router.get('/page/:story/:page', function(req, res) {
     var story = _.find(stories, function(s){
         return s.id == storyId;
     });
+    var storyIndex = _.indexOf(stories,story);
+    var prev = {
+        available:storyIndex > 0
+    };
+    if(prev.available){
+	var prevStory = stories[storyIndex - 1];
+        prev.link = "/page/"+prevStory.id+"/0"
+        prev.label = prevStory.label;
+    }
+    var next = {
+        available:storyIndex < stories.length - 1
+    };
+    if(next.available){
+	var nextStory = stories[storyIndex + 1];
+        next.link = "/page/"+nextStory.id+"/0"
+	next.label = nextStory.label;
+    }
+    else{
+	next.link = "/feedback";
+	next.label = "Tell us what you think!";
+    }
     var page = _.find(story.pages, function(p){
         return p.id == pageId;
     });
     res.render('page', {
         page:page,
-        story:story
+        story:story,
+	prev:prev,
+	next:next
     });
 });
 
