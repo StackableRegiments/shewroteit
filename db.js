@@ -45,7 +45,21 @@ var stories = (function(){
                         p("Yes.  It's pretty much any file.  Anything you can save on your computer you can send down to someone else as a web response.")
                     ]
                 ]},
-                {id:2,label:"Writing the response"}
+                {id:2,label:"Writing the response", comments:[
+                    [
+                        gp("How does it know where to get the list?"),
+                        p("Ah, well.  That's a huge question.  It could get it from a database, for instance."),
+                        gp("That's a file of data?"),
+                        p("It could be.  But usually people mean another program, which is running on a computer and making sure that people stand in line properly to get the data."),
+                        gp("What do you mean stand in line?"),
+                        p("It means they have to wait for their turn.  And if they're putting things in and taking them out they have to make sure everybody gets to do their whole job, without someone coming in at once.  Imagine if you were halfway through paying for your potatoes, and just as you handed over your money someone grabbed the potatoes out of your basket and then the shop said 'Sorry, we've run out of potatoes'."),
+                        p("A database stops people stealing your potatoes."),
+                        gp("Right."),
+                        p("They could also get it from a file, or from another person typing at the other end.  Or they could get it from calling up another program, or by making it up as they go along."),
+                        gp("Computers can make things up?"),
+                        p("They really can't.  But they can do a thing which looks a lot like they can.")
+                    ]
+                ]}
             ]
         },
         {
@@ -94,7 +108,12 @@ var stories = (function(){
                 {id:4,label:"A new tack.",comments:[]},
                 {id:5,label:"Concern.",comments:[]},
                 {id:6,label:"An old friend.",comments:[]},
-                {id:7,label:"Ennui.",comments:[]}
+                {id:7,label:"Ennui.",comments:[
+                    [
+                        gp("My Batman comic is better."),
+                        p("Yes.  Yes, it is.  Your Batman comic is the best Batman comic ever.")
+                    ]
+                ]}
             ]
         },
         {
@@ -102,7 +121,14 @@ var stories = (function(){
             ch:4,
             label:"Prog Lang",
             pages:[
-                {id:0,label:"Overview",comments:[]},
+                {id:0,label:"Overview",comments:[
+                    [
+                        gp("You said there were hundreds."),
+                        p("I've been pretty restrained about listing them and drawing them.  There are hundreds that I haven't even ever programmed in, actually.  And probably hundreds that I've never seen or heard of."),
+                        gp("So there are hundreds."),
+                        p("There are hundreds.")
+                    ]
+                ]},
                 {id:1,label:"Javascript",comments:[
                     [
                         gp("Why is Javascript Spiderman?  Oh..."),
@@ -162,12 +188,74 @@ var stories = (function(){
             ch:37,
             label:"Monads",
             pages:[
-                {id:0,label:"1"},
-                {id:1,label:"2"},
-                {id:2,label:"3"},
-                {id:3,label:"4"},
-                {id:4,label:"5"},
-                {id:5,label:"6"}
+                {id:0,label:"1",comments:[
+                    [
+                        gp("What is this FOR?"),
+                        p("It's for when you want the same line of code to do different things depending what's around it.  It sort of makes programming three dimensional."),
+                        gp("Is programming two dimensional normally?"),
+                        p("Well, it goes across as you write more words and it goes down as you write more lines."),
+                        gp("Didn't you say that the newline thingy was just another character?  Isn't it all in one line?  Is that still two dimensional?"),
+                        p("Uh...  Um.  You're right, actually.  Yes.  It's one dimensional normally.  So Monads are...  Um...  Two dimensional?"),
+                        gp("Dad?  You can say three dimensional if you want to.  Don't be sad."),
+                        p("Thanks, honey.")
+                    ]
+                ]},
+                {id:1,label:"2",comments:[
+                    [
+                        gp("What does f(a) mean?"),
+                        p("f is the name of a general function - so if you see something called 'f' somewhere, it usually means 'the function we're talking about'."),
+                        gp("Sort of like 'it'?"),
+                        p("A bit like that.  But it's more like 'A man walks into a bar'."),
+                        gp("Which man?"),
+                        p("Any man."),
+                        gp("So it's any function?"),
+                        p("It just sort of points at a function if there's one around - it's in an unspecified namespace."),
+                        gp("So it's a symbol you're assuming would have a binding if we were really talking about code."),
+                        p("Wow.  I should have just said that."),
+                        gp("I don't know why you didn't just say that.")
+                    ]
+                ]},
+                {id:2,label:"3",comments:[
+                    [
+                        gp("What's traversal?"),
+                        p("It's when you go through something.  Like, if I took you on a tour of my house."),
+                        gp("Yes?"),
+                        p("I'd show you the bits I wanted you to see, right?"),
+                        gp("Not your bedroom."),
+                        p("Not my bedroom."),
+                        gp("Because it's too messy."),
+                        p("Because it's too...  Never mind why.")
+                    ]
+                ]},
+                {id:3,label:"4",comments:[
+                    [
+                        gp("Why is throw not a value?"),
+                        p("I'm actually not completely sure about that one.  I'm pretty sure I've seen people say that you can desugar exceptions to values.  They have to be passed through until a handler claims them, is all."),
+                        gp("What's desugar?"),
+                        p("It's when you peel off the special language so that you can just do the basic stuff that's going on."),
+                        gp("Like when we wrote times with plus?"),
+                        p("Yes.")
+                    ]
+                ]},
+                {id:4,label:"5",comments:[
+                    [
+                        gp("What's all that stuff?"),
+                        p("{{this}}?"),
+                        gp("Yeah, {{that}}."),
+                        p("It's a markup language called handlebars, which is an extension of a markup language called mustache."),
+                        gp("It sort of looks like a mustache."),
+                        p("I think that's why they called it that."),
+                        gp("I know.  That's what I was saying."),
+                        p("Sorry.")
+                    ]
+                ]},
+                {id:5,label:"6",comments:[
+                    [
+			gp("What's mockable?"),
+			p("It means I can make a fake one easily to put in my tests.")
+                    ]
+                ]
+                }
             ]
         },
         {
