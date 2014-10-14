@@ -1,0 +1,18 @@
+<div id="comments" class="col-md-4">
+  {{#each comments}}
+    <ul>
+      {{#each this}}
+        <div class="comment">
+          <div class="media">
+            <div class="pull-left">
+              <img class="media-object" src="/images/avatars/{{author}}.png" alt="{{author}} avatar" />
+            </div>
+            <div class="media-body">
+              <div>{{content}}</div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </ul>
+  {{/each}}
+</div>

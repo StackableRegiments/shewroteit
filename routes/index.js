@@ -2,24 +2,33 @@ var express = require('express');
 var _ = require('lodash');
 var router = express.Router();
 
+var author = function(a){
+    return function(s){
+        return {author:a, content:s};
+    };
+};
+var p = author("paper");
+var gp = author("girlPurple");
+var l = author("leer");
+
 var demos = (function(){
     return [
         {
             chapter:1,
-            label:"Shoot the robots",
-            id:0
+            label:"Spaceships in space",
+            id:0,
+            comments:[
+                [
+                    gp("Is this the one with steering around?"),
+                    p("Yes.  But when I realised that everyone was reading on their phones, I did a bit of tweaking to make it work better there.  Now you just touch the screen to move the ship."),
+                    gp("I like that better than having to press escape to start typing."),
+                    p("I guess that makes you a Visual Studio user.")
+                ]
+            ]
         }
     ];
 })();
 var stories = (function(){
-    var author = function(a){
-        return function(s){
-            return {author:a, content:s};
-        };
-    };
-    var p = author("paper");
-    var gp = author("girlPurple");
-    var l = author("leer");
     var chapters = [
         {
             id:0,
@@ -197,10 +206,21 @@ router.get('/about', function(req,res) {
         about:true
     });
 });
-router.get('/demo/1', function(req,res) {
-    res.render('flyover', {
+router.get('/demos', function(req,res) {
+    res.render('demos', {
         demos:demos
     });
+});
+router.get('/demo/:demo', function(req,res){
+    var demoId = parseInt(req.params.demo);
+    var demo = _.find(demos,function(d){
+        return d.id == demoId;
+    });
+    switch(demoId){
+    case 0: res.render('flyover',{
+        comments:demo.comments
+    }); break;
+    }
 });
 router.get('/book', function(req,res) {
     res.render('book', {
@@ -218,7 +238,7 @@ router.get('/page/:story/:page', function(req, res) {
         available:storyIndex > 0
     };
     if(prev.available){
-	var prevStory = stories[storyIndex - 1];
+        var prevStory = stories[storyIndex - 1];
         prev.link = "/page/"+prevStory.id+"/0"
         prev.label = prevStory.label;
     }
@@ -226,13 +246,13 @@ router.get('/page/:story/:page', function(req, res) {
         available:storyIndex < stories.length - 1
     };
     if(next.available){
-	var nextStory = stories[storyIndex + 1];
+        var nextStory = stories[storyIndex + 1];
         next.link = "/page/"+nextStory.id+"/0"
-	next.label = nextStory.label;
+        next.label = nextStory.label;
     }
     else{
-	next.link = "/feedback";
-	next.label = "Tell us what you think!";
+        next.link = "/feedback";
+        next.label = "Tell us what you think!";
     }
     var page = _.find(story.pages, function(p){
         return p.id == pageId;
@@ -240,8 +260,8 @@ router.get('/page/:story/:page', function(req, res) {
     res.render('page', {
         page:page,
         story:story,
-	prev:prev,
-	next:next
+        prev:prev,
+        next:next
     });
 });
 

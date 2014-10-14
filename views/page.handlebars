@@ -7,48 +7,31 @@
           <img class="comic" src="/images/pages/{{../story.id}}/{{id}}.png" alt="Page {{id}}" />
         </div>
       </div>
-      <div id="comments" class="col-md-4">
-        {{#each comments}}
-          <ul>
-            {{#each this}}
-              <div class="comment">
-                <div class="media">
-                  <div class="pull-left">
-                    <img class="media-object" src="/images/avatars/{{author}}.png" alt="{{author}} avatar" />
-                  </div>
-                  <div class="media-body">
-                    <div>{{content}}</div>
-                  </div>
-                </div>
-              </div>
-            {{/each}}
-          </ul>
-        {{/each}}
-      </div>
+      {{> comments}}
     </div>
   {{/each}}
   <div id="footerNav" class="col-md-12">
     <table>
       <tr>
-	<td>
-	  {{#if prev.available}}
+        <td>
+          {{#if prev.available}}
             <a href="{{prev.link}}">
               <img src="/images/nav/left.png" alt="{{prev.label}}" />
             </a>
-	  {{/if}}
-	</td>
-	<td>
-	  <a href="/book">
+          {{/if}}
+        </td>
+        <td>
+          <a href="/book">
             <img src="/images/nav/center.png" alt="Home" />
-	  </a>
-	</td>
-	<td>
-	  {{#if next.available}}
+          </a>
+        </td>
+        <td>
+          {{#if next.available}}
             <a href="{{next.link}}">
               <img src="/images/nav/right.png" alt="{{next.label}}" />
             </a>
-	  {{/if}}
-	</td>
+          {{/if}}
+        </td>
       </tr>
     </table>
   </div>
