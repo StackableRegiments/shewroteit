@@ -1,6 +1,6 @@
 var express = require('express');
 var _ = require('lodash');
-var shewroteit = require('shewroteit');
+var db = require('../db');
 var router = express.Router();
 
 router.get('/', function(req,res) {
@@ -13,12 +13,12 @@ router.get('/about', function(req,res) {
 });
 router.get('/demos', function(req,res) {
     res.render('demos', {
-        demos:shewroteit.demos
+        demos:db.demos
     });
 });
 router.get('/demo/:demo', function(req,res){
     var demoId = parseInt(req.params.demo);
-    var demo = _.find(shewroteit.demos,function(d){
+    var demo = _.find(db.demos,function(d){
         return d.id == demoId;
     });
     switch(demoId){
@@ -29,29 +29,29 @@ router.get('/demo/:demo', function(req,res){
 });
 router.get('/book', function(req,res) {
     res.render('book', {
-        stories:shewroteit.stories
+        stories:db.stories
     })
 });
 router.get('/page/:story/:page', function(req, res) {
     var storyId = parseInt(req.params.story);
     var pageId = parseInt(req.params.page);
-    var story = _.find(shewroteit.stories, function(s){
+    var story = _.find(db.stories, function(s){
         return s.id == storyId;
     });
-    var storyIndex = _.indexOf(shewroteit.stories,story);
+    var storyIndex = _.indexOf(db.stories,story);
     var prev = {
         available:storyIndex > 0
     };
     if(prev.available){
-        var prevStory = shewroteit.stories[storyIndex - 1];
+        var prevStory = db.stories[storyIndex - 1];
         prev.link = "/page/"+prevStory.id+"/0"
         prev.label = prevStory.label;
     }
     var next = {
-        available:storyIndex < shewroteit.stories.length - 1
+        available:storyIndex < db.stories.length - 1
     };
     if(next.available){
-        var nextStory = shewroteit.stories[storyIndex + 1];
+        var nextStory = db.stories[storyIndex + 1];
         next.link = "/page/"+nextStory.id+"/0"
         next.label = nextStory.label;
     }
