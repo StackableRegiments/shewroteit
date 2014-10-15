@@ -1,0 +1,87 @@
+$(function(){
+    var parent = $("#parent");
+    var scale = 1.0;
+    var f = function(n){
+        return n * scale;
+    };
+    var g = function(n){
+        return n / scale;
+    }
+    var w = parent.width();
+    var h = parent.height();
+    var scene = $("#scene")
+            .attr("width",w)
+            .attr("height",h)[0].getContext('2d');
+    var rider = {
+        width:f(50),
+        height:f(80),
+        speed:f(5),
+        image:new Image()
+    };
+    var groundLevel = (h - rider.height);
+    rider.x = (w - rider.width) / 2;
+    rider.y = groundLevel - rider.height;
+    rider.image.onload = function(){
+        rider.loaded = true;
+    };
+    rider.image.src = "/images/demos/1/0.png";
+    var graph = {
+        bumps:[]
+    };
+    var defer = 0;
+    var tick = function(){
+        if(--defer <= 0 &&_.random(100) < 2){
+            var b = {
+                height:_.random(30,200),
+                width:_.random(100,200),
+                x:w,
+                active:true
+            };
+            defer = b.width;
+            graph.bumps.push(b);
+        }
+        rider.y = groundLevel - rider.height;
+	rider.gradient = 0;
+        _.forEach(graph.bumps,function(b){
+            b.x -= rider.speed;
+            if(b.x < 0){
+                b.active = false;
+            }
+            var x = rider.x + rider.width;
+            if(x > b.x && rider.x < b.x + b.width){
+                var gradient = Math.atan2(b.height,b.width);
+                var distance = x - b.x;
+                rider.y -= Math.sin(gradient) * distance;
+                rider.gradient = gradient;
+            }
+        });
+        graph.bumps = _.filter(graph.bumps,"active");
+    };
+    var draw = function(){
+        tick();
+        scene.clearRect(0,0,w,h);
+        scene.strokeStyle = "black";
+        scene.beginPath();
+        scene.moveTo(0,groundLevel);
+        _.forEach(graph.bumps,function(b){
+            scene.lineTo(b.x,groundLevel);
+            scene.lineTo(b.x + b.width, groundLevel - b.height);
+            scene.lineTo(b.x + b.width, groundLevel);
+        });
+        scene.lineTo(w,groundLevel);
+        scene.stroke();
+        if(rider.loaded){
+            scene.save();
+            scene.translate(rider.x,rider.y);
+            scene.rotate(-rider.gradient);
+            scene.drawImage(
+                rider.image,
+                0,0,
+                rider.width,rider.height
+            );
+	    scene.restore();
+        }
+        requestAnimationFrame(draw);
+    };
+    draw();
+});

@@ -23,7 +23,19 @@ var demos = (function(){
                     p("I guess that makes you a Visual Studio user.")
                 ]
             ]
-        }
+        },
+	{
+	    chapter:2,
+	    label:"Velocipede vigorously",
+	    id:1,
+	    comments:[
+		[
+		    gp("This is a pretty boring game."),
+		    p("Yes.  What would make it better?"),
+		    gp("Anything.")
+		]
+	    ]
+	}
     ];
 })();
 var stories = (function(){

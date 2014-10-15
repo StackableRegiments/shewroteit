@@ -1,0 +1,4 @@
+<div id="parent">
+  <canvas id="scene">
+  </canvas>
+</div>

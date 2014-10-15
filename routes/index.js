@@ -24,7 +24,10 @@ router.get('/demo/:demo', function(req,res){
     switch(demoId){
     case 0: res.render('flyover',{
         comments:demo.comments
-    }); break;
+    });break;
+    case 1: res.render('velocipede',{
+        comments:demo.comments
+    });break;
     }
 });
 router.get('/book', function(req,res) {
