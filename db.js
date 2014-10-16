@@ -1,4 +1,6 @@
 var _ = require('lodash');
+var fs = require('fs');
+var path = require('path');
 
 var author = function(a){
     return function(s){
@@ -293,8 +295,11 @@ var stories = (function(){
     ];
     _.forEach(chapters,function(c){
         c.chapter = c.ch+".";
-	c.pageCount = c.pages.length;
-    })
+        c.pageCount = c.pages.length;
+        c.discussionCount = _.flatten(_.pluck(c.pages,"comments")).length;
+	var p = path.join(__dirname,"views","partials","technicalNotes",c.id.toString(),"technicalNotes.handlebars");
+        c.noteCount = fs.existsSync(p) ? 1 : 0;
+    });
     return _.sortBy(chapters,"ch");
 })();
 

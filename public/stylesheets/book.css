@@ -1,0 +1,19 @@
+.badge.pages{
+    background-color:green;
+} 
+.badge.notes{
+    background-color:lightblue;
+    color:black;
+}
+.story{
+    position:relative;
+}
+.badges{
+    text-align:center;
+    width:100%;
+    position:absolute;
+    bottom:0;
+}
+.badges .badge{
+    font-size:15px;
+}
