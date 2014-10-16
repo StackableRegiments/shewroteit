@@ -1,8 +1,10 @@
-<div id="technicalNotes">
-  <link href="/stylesheets/prism.css" rel="stylesheet" />
-  <script src="/javascripts/prism.js"></script>
-  <div class="alert alert-success" role="alert">
-    <a href="?invertTechnicalMode=1">Don't show me technical notes</a>
-    {{{technicalNotes}}}
+{{#if technicalNotes}}
+  <div id="technicalNotes">
+    <link href="/stylesheets/prism.css" rel="stylesheet" />
+    <script src="/javascripts/prism.js"></script>
+    <div class="alert alert-success" role="alert">
+      <a href="?technicalMode=0">Don't show me technical notes</a>
+      {{{technicalNotes}}}
+    </div>
   </div>
-</div>
+{{/if}}

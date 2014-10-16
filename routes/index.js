@@ -19,9 +19,7 @@ function decorate(req,args,res){
             var p = path.join(__dirname,"..","views","partials","technicalNotes",story,"technicalNotes.handlebars");
             args.technicalNotes = fs.readFileSync(p);
         }
-        catch(err){
-            console.log("No technical notes",err);
-        }
+        catch(err){}
     }
     return args;
 }
