@@ -2,38 +2,58 @@ var express = require('express');
 var _ = require('lodash');
 var db = require('../db');
 var router = express.Router();
+var fs = require('fs');
+var path = require('path');
+
+function decorate(req,args,res){
+    var technicalMode = req.cookies.technicalMode;
+    switch(req.query.technicalMode){
+	case "0": technicalMode = 0; break;
+	case "1": technicalMode = 1; break;
+    }
+    res.cookie('technicalMode', technicalMode);
+    args.technicalMode = technicalMode == 1;
+    if(args.technicalMode){
+        try{
+            var story = req.params.story;
+            var p = path.join(__dirname,"..","views","partials","technicalNotes",story,"technicalNotes.handlebars");
+            args.technicalNotes = fs.readFileSync(p);
+        }
+        catch(err){
+            console.log("No technical notes",err);
+        }
+    }
+    return args;
+}
 
 router.get('/', function(req,res) {
     res.redirect('/book');
 });
 router.get('/about', function(req,res) {
-    res.render('about',{
+    res.render('about',decorate(req,{
         about:true
-    });
+    },res));
 });
 router.get('/demos', function(req,res) {
-    res.render('demos', {
+    res.render('demos', decorate(req,{
         demos:db.demos
-    });
+    },res));
 });
 router.get('/demo/:demo', function(req,res){
     var demoId = parseInt(req.params.demo);
     var demo = _.find(db.demos,function(d){
         return d.id == demoId;
     });
-    switch(demoId){
-    case 0: res.render('flyover',{
+    var page = 'flyover';
+    if(demoId == 1) page = 'velocipede';
+    res.render(page,decorate(req,{
         comments:demo.comments
-    });break;
-    case 1: res.render('velocipede',{
-        comments:demo.comments
-    });break;
-    }
+    },res));
 });
 router.get('/book', function(req,res) {
-    res.render('book', {
+    res.render('book', decorate(req,{
         stories:db.stories
-    })
+    },res));
 });
 router.get('/page/:story/:page', function(req, res) {
     var storyId = parseInt(req.params.story);
@@ -65,12 +85,12 @@ router.get('/page/:story/:page', function(req, res) {
     var page = _.find(story.pages, function(p){
         return p.id == pageId;
     });
-    res.render('page', {
+    res.render('page', decorate(req,{
         page:page,
         story:story,
         prev:prev,
         next:next
-    });
+    },res));
 });
 
 module.exports = router;

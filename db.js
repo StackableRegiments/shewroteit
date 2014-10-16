@@ -24,18 +24,18 @@ var demos = (function(){
                 ]
             ]
         },
-	{
-	    chapter:2,
-	    label:"Velocipede vigorously",
-	    id:1,
-	    comments:[
-		[
-		    gp("This is a pretty boring game."),
-		    p("Yes.  What would make it better?"),
-		    gp("Anything.")
-		]
-	    ]
-	}
+        {
+            chapter:2,
+            label:"Velocipede vigorously",
+            id:1,
+            comments:[
+                [
+                    gp("This is a pretty boring game."),
+                    p("Yes.  What would make it better?"),
+                    gp("Anything.")
+                ]
+            ]
+        }
     ];
 })();
 var stories = (function(){
@@ -263,8 +263,8 @@ var stories = (function(){
                 ]},
                 {id:5,label:"6",comments:[
                     [
-			gp("What's mockable?"),
-			p("It means I can make a fake one easily to put in my tests.")
+                        gp("What's mockable?"),
+                        p("It means I can make a fake one easily to put in my tests.")
                     ]
                 ]
                 }
@@ -293,6 +293,7 @@ var stories = (function(){
     ];
     _.forEach(chapters,function(c){
         c.chapter = c.ch+".";
+	c.pageCount = c.pages.length;
     })
     return _.sortBy(chapters,"ch");
 })();

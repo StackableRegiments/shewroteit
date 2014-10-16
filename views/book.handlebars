@@ -1,9 +1,10 @@
 <div id="stories">
+  <div><span class="badge">Page count</span> Chapter No.</div>
   {{#each stories}}
     <a href="/page/{{id}}/0">
       <div class="story">
         <div class="chapterTitle">{{chapter}}</div>
-        <div class="title">{{label}}</div>
+        <div class="title"><span class="badge">{{pageCount}}</span> {{label}}</div>
         <img src="/images/stories/{{id}}.png" />
       </div>
     </a>

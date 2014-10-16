@@ -1,0 +1,51 @@
+<div>
+  <p>Of course this is pretty simplified - while there are web frameworks that really do present this sort of simplicity (the code that generates this page, for instance, in Node.JS using Express 4.x, is:
+  </p>
+  <pre>
+    <code class="language-javascript">
+router.get('/page/:story/:page', function(req, res) {
+    var storyId = parseInt(req.params.story);
+    var pageId = parseInt(req.params.page);
+    var story = _.find(db.stories, function(s){
+        return s.id == storyId;
+    });
+    var storyIndex = _.indexOf(db.stories,story);
+    var prev = {
+        available:storyIndex > 0
+    };
+    if(prev.available){
+        var prevStory = db.stories[storyIndex - 1];
+        prev.link = "/page/"+prevStory.id+"/0"
+        prev.label = prevStory.label;
+    }
+    var next = {
+        available:storyIndex < db.stories.length - 1
+    };
+    if(next.available){
+        var nextStory = db.stories[storyIndex + 1];
+        next.link = "/page/"+nextStory.id+"/0"
+        next.label = nextStory.label;
+    }
+    else{
+        next.link = "/feedback";
+        next.label = "Tell us what you think!";
+    }
+    var page = _.find(story.pages, function(p){
+        return p.id == pageId;
+    });
+    res.render('page', decorate(req,{
+        page:page,
+        story:story,
+        prev:prev,
+        next:next
+    }));
+});
+    </code>
+  </pre>
+  <p>
+    That separates the logic nicely from the display, which triggers on the available flags.  The display doesn't know anything about the model except those direct flags - it couldn't calculate them for itself (the fact that I'm using Handlbars contributes to this - it's good at refusing any calculation capability in the view).
+  </p>
+  <p>
+    How the data is generated, retrieved, cached and interpolated is material for an entire programming encylopaedia.  And, hopefully, for a later chapter.
+  </p>
+</div>

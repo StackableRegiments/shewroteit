@@ -50,7 +50,7 @@ $(function(){
             if(b.right < 0){
                 b.active = false;
             }
-            if(rider.right > b.left && rider.left < b.right){
+            if(rider.right > b.left && rider.left - rider.width < b.right){
                 var gradient = Math.atan2(b.height,b.width);
                 var distance = rider.left - b.left;
                 rider.y -= Math.sin(gradient) * distance;
