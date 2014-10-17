@@ -1,0 +1,41 @@
+<p>
+  It's a pretty gross understatement to say that there are hundreds of programming languages.  That's probably several orders of magnitude too low.  The reason I've gone for Javascript as the general teaching language (where it's not Scala - for the Monad section, for instance) is that I think it's a pretty low level but ubiquitous language - low level in the sense of not having too much syntactic sugar for concepts like object orientation or inheritance.  I use a very bare-bones style, but I do use Underscore.js (well, Lo-Dash) and JQuery.  Javascript, especially in the DOM, without JQuery is more than a little pointless.
+</p>
+<p>
+  The primary code samples are listed below for easier comprehension:
+</p>
+<pre>
+  <code class="language-javascript">
+    var multiplier = function(by){
+      return function(n){
+        return n * by;
+      }
+    }
+    var doubler = multiplier(2);
+    var tripler = multiplier(3);
+
+    doubler(4) == 8;
+    tripler(4) == 12;
+  </code>
+</pre>
+<pre>
+  <code class="language-javascript">
+    var x = function(timesThis,by){
+      var step = function(upTo,toGo){
+        if(toGo == 0) return upTo;
+	return step(upTo + timesThis, toGo - 1);
+      };
+      return step(0,by);
+    }
+  </code>
+</pre>
+<pre>
+  <code class="language-erlang">
+    _X(a,0,c) = c;
+    _X(a,b,c) = _X(a,b-1,c+a).
+    X(a,b) = _X(a,b,0).
+  </code>
+</pre>
+<p>
+  Yeah, there has to be a helper function in there to support the default arguments.  Erlang doesn't comfortably vary arity.
+</p>
