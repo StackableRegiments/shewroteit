@@ -25,7 +25,8 @@ var i = function(id){
 var old = function(id){
     return [[{
         image:true,
-        id:id
+        id:id,
+	class:"comic"
     }]];
 }
 
