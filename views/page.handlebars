@@ -2,10 +2,19 @@
   <h3 class="comicHeader">{{story.chapter}}: {{story.label}}</h3>
   {{#each story.pages}}
     <div class="page clearfix">
-      <div class="col-md-8">
-        <div>
-          <img class="comic" src="/images/pages/{{../story.id}}/{{id}}.png" alt="Page {{id}}" />
-        </div>
+      <div class="col-md-6">
+        {{#each content}}
+          <div>
+            {{#each this}}
+              {{#if text}}
+                <div class="partial">{{content}}</div>
+              {{/if}}
+              {{#if image}}
+                <img class="partial" src="/images/pages/{{../../../../story.id}}/{{id}}.png" />
+              {{/if}}
+            {{/each}}
+          </div>
+        {{/each}}
       </div>
       {{> comments}}
     </div>

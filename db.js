@@ -10,6 +10,24 @@ var author = function(a){
 var p = author("paper");
 var gp = author("girlPurple");
 var l = author("leer");
+var t = function(text){
+    return {
+        text:true,
+        content:text
+    }
+};
+var i = function(id){
+    return {
+        image:true,
+        id:id
+    };
+}
+var old = function(id){
+    return [[{
+        image:true,
+        id:id
+    }]];
+}
 
 var demos = (function(){
     return [
@@ -47,33 +65,72 @@ var stories = (function(){
             ch:1,
             label:"The Web",
             pages:[
-                {id:0,label:"The Web",comments:[
-                    [
-                        gp("So it's doing all this while we read it?"),
-                        p("Yes.  We're reading a comic about the website that we're on, which explains how to make this website and how to make other ones.")
-                    ]
-                ]},
-                {id:1,label:"The Web server",comments:[
-                    [
-                        gp("Is it files?"),
-                        p("Yes.  It's pretty much any file.  Anything you can save on your computer you can send down to someone else as a web response.")
-                    ]
-                ]},
-                {id:2,label:"Writing the response", comments:[
-                    [
-                        gp("How does it know where to get the list?"),
-                        p("Ah, well.  That's a huge question.  It could get it from a database, for instance."),
-                        gp("That's a file of data?"),
-                        p("It could be.  But usually people mean another program, which is running on a computer and making sure that people stand in line properly to get the data."),
-                        gp("What do you mean stand in line?"),
-                        p("It means they have to wait for their turn.  And if they're putting things in and taking them out they have to make sure everybody gets to do their whole job, without someone coming in at once.  Imagine if you were halfway through paying for your potatoes, and just as you handed over your money someone grabbed the potatoes out of your basket and then the shop said 'Sorry, we've run out of potatoes'."),
-                        p("A database stops people stealing your potatoes."),
-                        gp("Right."),
-                        p("They could also get it from a file, or from another person typing at the other end.  Or they could get it from calling up another program, or by making it up as they go along."),
-                        gp("Computers can make things up?"),
-                        p("They really can't.  But they can do a thing which looks a lot like they can.")
-                    ]
-                ]}
+                {id:0,label:"The Web",
+                 content:[
+                     [
+                         t("This is a web site."),
+                         i(0)
+                     ],
+                     [
+                         t("A web site sends you letters.  But you have to ask for them."),
+                         t("You go to the address of the web site and it sends you a letter."),
+                         i(1)
+                     ]
+                 ],
+                 comments:[
+                     [
+                         gp("So it's doing all this while we read it?"),
+                         p("Yes.  We're reading a comic about the website that we're on, which explains how to make this website and how to make other ones.")
+                     ]
+                 ]},
+                {id:1,label:"The Web server",
+                 content:[
+                     [
+                         t("There are two things we went past very fast just then:"),
+                         t("1: The web server writes the letter."),
+                         t("2: Then your computer tells you what the letter says."),
+                         t("Let's go back to 1."),
+                         t("How does it write the letter?"),
+                         i(2)
+                     ],
+                     [
+                         t("Sometimes it just copies a letter it already has."),
+                         i(3)
+                     ],
+                     [
+                         t("Or it can copy anything else.  It could be a video.  Or a picture."),
+                         i(4)
+                     ]
+                 ],
+                 comments:[
+                     [
+                         gp("Is it files?"),
+                         p("Yes.  It's pretty much any file.  Anything you can save on your computer you can send down to someone else as a web response.")
+                     ]
+                 ]},
+                {id:2,label:"Writing the response",
+                 content:[
+                     [
+                         t("Sometimes it fills in the blanks."),
+                         t("This invoice needs a list of who bought what, so it can ask the right people for the right things."),
+                         i(5)
+                     ]
+                 ],
+                 comments:[
+                     [
+                         gp("How does it know where to get the list?"),
+                         p("Ah, well.  That's a huge question.  It could get it from a database, for instance."),
+                         gp("That's a file of data?"),
+                         p("It could be.  But usually people mean another program, which is running on a computer and making sure that people stand in line properly to get the data."),
+                         gp("What do you mean stand in line?"),
+                         p("It means they have to wait for their turn.  And if they're putting things in and taking them out they have to make sure everybody gets to do their whole job, without someone coming in at once.  Imagine if you were halfway through paying for your potatoes, and just as you handed over your money someone grabbed the potatoes out of your basket and then the shop said 'Sorry, we've run out of potatoes'."),
+                         p("A database stops people stealing your potatoes."),
+                         gp("Right."),
+                         p("They could also get it from a file, or from another person typing at the other end.  Or they could get it from calling up another program, or by making it up as they go along."),
+                         gp("Computers can make things up?"),
+                         p("They really can't.  But they can do a thing which looks a lot like they can.")
+                     ]
+                 ]}
             ]
         },
         {
@@ -81,33 +138,70 @@ var stories = (function(){
             ch:2,
             label:"Code",
             pages:[
-                {id:0,label:"Code",comments:[
-                    [
-                        gp("It looks a bit like 'in' for someone who's trying to do cursive."),
-                        p("Yes.  But it isn't a word like 'in'.  It's more like the letter 'a' or the digit 9.  It's a single character, it's just made of two pieces - a backslash and the n.  When you put them together they have a special meaning, which is 'newline'.  Or 'start writing at the next line'."),
-                        gp("Dad?  Maybe instead of just looking at the programming we could put on the games we made.  So you could play them and then see how they were made."),
-                        p("Yes.  I want to.  Also our Batman comics."),
-                        gp("Yeah.")
-                    ]
-                ]},
-                {id:1,label:"More code",comments:[
-                    [
-                        gp("Lambda?"),
-                        p("Yes.  What about it?"),
-                        gp("What is it?"),
-                        p("Lambda is a letter in the Greek alphabet.  What it means in programming is a function that you can pass around.  Do you remember what a function is?"),
-                        gp("Yes.  It's when one thing goes in and comes out another thing."),
-                        p("Or the same thing.  It's a machine where something goes in and something comes out.  Can you think of any functions?"),
-                        gp("A?  Isn't A a function?"),
-                        p("Not in any of the languages I know.  It could be the NAME of a function, but it isn't itself a function.  It sounds more like a symbol.  Addition is a function.  It takes some numbers and gives back a number which is all of them added together.")
-                    ]
-                ]},
-                {id:2,label:"More code",comments:[
-                    [
-                        p("Biff!  Bam!  Zowie!  Pow!  Tank!"),
-                        gp("Dad.")
-                    ]
-                ]}
+                {id:0,label:"Code",
+                 content:[
+                     [
+                         t("[\\n] is a code."),
+                         t("A code has a special meaning.  You might have a code with your friend where you say 'book' instead of 'horse' because it's funny to say you went riding on a book."),                        t("But you both know what you really mean.  When you say [\n] to a computer, it means 'pick up your pen and move down to the next line.  Then start writing again'."),
+                         i(0),
+                         t("Like[\\n]"),
+                         t("this.[\\n]"),
+                         t("[\\n]"),
+                         t("[\\n]"),
+                         t("See?[\\n]"),
+                         t("[\\n]")
+                     ]
+                 ],
+                 comments:[
+                     [
+                         gp("It looks a bit like 'in' for someone who's trying to do cursive."),
+                         p("Yes.  But it isn't a word like 'in'.  It's more like the letter 'a' or the digit 9.  It's a single character, it's just made of two pieces - a backslash and the n.  When you put them together they have a special meaning, which is 'newline'.  Or 'start writing at the next line'."),
+                         gp("Dad?  Maybe instead of just looking at the programming we could put on the games we made.  So you could play them and then see how they were made."),
+                         p("Yes.  I want to.  Also our Batman comics."),
+                         gp("Yeah.")
+                     ]
+                 ]},
+                {id:1,label:"More code",
+                 content:[
+                     [
+                         t("Computers talk in code all the time.  When the web server talks to the browser, it sends code to tell it how to show you what the server said."),
+                         t("That means you don't see the code.  You see what the browser shows you."),
+                         t("It's a bit like a script for a puppet show.  You're sitting in the audience, so you can't see what the players are doing behind the curtain.  You can only see the puppets."),
+                         i(1)
+                     ]
+                 ],
+                 /*
+                  comments:[
+                  [
+                  gp("Lambda?"),
+                  p("Yes.  What about it?"),
+                  gp("What is it?"),
+                  p("Lambda is a letter in the Greek alphabet.  What it means in programming is a function that you can pass around.  Do you remember what a function is?"),
+                  gp("Yes.  It's when one thing goes in and comes out another thing."),
+                  p("Or the same thing.  It's a machine where something goes in and something comes out.  Can you think of any functions?"),
+                  gp("A?  Isn't A a function?"),
+                  p("Not in any of the languages I know.  It could be the NAME of a function, but it isn't itself a function.  It sounds more like a symbol.  Addition is a function.  It takes some numbers and gives back a number which is all of them added together.")
+                  ]
+                  ]*/},
+                {id:2,label:"More code",
+                 content:[
+                     [
+			 t("You can see the code of THIS page by right-clicking and choosing 'View source' or 'View page source' or something like that.  (It depends on which browser you're using)"),
+			 t("It's a lot longer than it looks!"),
+			 t("Don't worry, you don't have to write all that by hand.  You can ask the computer to do it.  You will use special codes to do it."),
+			 t("Using codes to tell a computer what to do is programming."),
+			 t("What you tell the computer to do is a program."),
+			 t("The codes that use are a programming language."),
+			 t("There weren't enough pictures on this page.  Let's have a Batman break!"),
+			 i(2)
+		     ]
+                 ],
+                 comments:[
+                     [
+                         p("Biff!  Bam!  Zowie!  Pow!  Tank!"),
+                         gp("Dad.")
+                     ]
+                 ]}
             ]
         },
         {
@@ -297,8 +391,11 @@ var stories = (function(){
         c.chapter = c.ch+".";
         c.pageCount = c.pages.length;
         c.discussionCount = _.flatten(_.pluck(c.pages,"comments")).length;
-	var p = path.join(__dirname,"views","partials","technicalNotes",c.id.toString(),"technicalNotes.handlebars");
+        var p = path.join(__dirname,"views","partials","technicalNotes",c.id.toString(),"technicalNotes.handlebars");
         c.noteCount = fs.existsSync(p) ? 1 : 0;
+        _.forEach(c.pages, function(p){
+            p.content = p.content || old(p.id);
+        });
     });
     return _.sortBy(chapters,"ch");
 })();

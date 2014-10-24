@@ -37,6 +37,15 @@
 .comment img{
     width:50px;
 }
+.comment{
+    border-bottom:1px solid lightgray;
+    margin-bottom:0.5em;
+}
 #footerNav img{
     width:100%;
+}
+img.partial{
+}
+div.partial{
+    margin:1em;
 }
