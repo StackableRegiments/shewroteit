@@ -556,6 +556,10 @@ var faq = [
     {
 	q:"Where did the other chapters go?",
 	a:"They were just there as an early preview.  Once we got the first round of feedback we took them down so we could concentrate on the first few chapters."
+    },
+    {
+	q:"My link to the Monads chapter doesn't work any more!",
+	a:"Sorry, Alan."
     }
 ];
 exports.faq = faq;
