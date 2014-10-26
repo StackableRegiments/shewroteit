@@ -543,7 +543,7 @@ var faq = [
     },
     {
         q:"Why did you stop writing everything by hand?",
-        a:"I was having a lot of trouble editing it, and when people said they couldn't understand something I wanted to be able to try to explain it again.  Also, I thought it was hard to read on a phone, and a lot of my readers turn out to be on phones."
+        a:"We were having a lot of trouble editing it, and when people said they couldn't understand something we wanted to be able to try to explain it again.  Also, people told us it was hard to read on a phone"
     },
     {
 	q:"Is Girl Purple a real person?  Is she as smart as she sounds?",
@@ -552,6 +552,10 @@ var faq = [
     {
 	q:"What is this built in?",
 	a:"Node.js, running on an Amazon stack.  It's a very simple setup with a flat file database.  It didn't need anything more complex than that.  Oh, also a brown pen."
+    },
+    {
+	q:"Where did the other chapters go?",
+	a:"They were just there as an early preview.  Once we got the first round of feedback we took them down so we could concentrate on the first few chapters."
     }
 ];
 exports.faq = faq;
