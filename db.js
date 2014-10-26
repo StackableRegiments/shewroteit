@@ -26,7 +26,7 @@ var old = function(id){
     return [[{
         image:true,
         id:id,
-	class:"comic"
+        class:"comic"
     }]];
 }
 
@@ -187,15 +187,15 @@ var stories = (function(){
                 {id:2,label:"More code",
                  content:[
                      [
-			 t("You can see the code of THIS page by right-clicking and choosing 'View source' or 'View page source' or something like that.  (It depends on which browser you're using)"),
-			 t("It's a lot longer than it looks!"),
-			 t("Don't worry, you don't have to write all that by hand.  You can ask the computer to do it.  You will use special codes to do it."),
-			 t("Using codes to tell a computer what to do is programming."),
-			 t("What you tell the computer to do is a program."),
-			 t("The codes that use are a programming language."),
-			 t("There weren't enough pictures on this page.  Let's have a Batman break!"),
-			 i(2)
-		     ]
+                         t("You can see the code of THIS page by right-clicking and choosing 'View source' or 'View page source' or something like that.  (It depends on which browser you're using)"),
+                         t("It's a lot longer than it looks!"),
+                         t("Don't worry, you don't have to write all that by hand.  You can ask the computer to do it.  You will use special codes to do it."),
+                         t("Using codes to tell a computer what to do is programming."),
+                         t("What you tell the computer to do is a program."),
+                         t("The codes that use are a programming language."),
+                         t("There weren't enough pictures on this page.  Let's have a Batman break!"),
+                         i(2)
+                     ]
                  ],
                  comments:[
                      [
@@ -230,46 +230,179 @@ var stories = (function(){
             ch:4,
             label:"Prog Lang",
             pages:[
-                {id:0,label:"Overview",comments:[
+                {id:0,label:"Overview",
+                 content:[
+                     [
+                         t("There are hundreds of programming languages."),
+                         i(0),
+                         t("Some of them come from different planets."),
+                         t("Some of them live in the same place as each other."),
+                         i(8),
+                         t("You could describe a bookshelf as a picture, or by pointing at a bookshelf, or by saying 'it is a vertical series of horizontal shelves', or as '4 * pine shelf, 2 * wall board, 1 * back board'."),
+                         t("You could use any of those descriptions and always be talking about the same bookshelf.  Programming languages are a bit like that."),
+                         t("They are different ways of talking."),
+                         t("They are different ways of thinking."),
+                         t("We will start by choosing just one.")
+                     ]
+                 ],
+                 comments:[
+                     [
+                         gp("You said there were hundreds."),
+                         p("I've been pretty restrained about listing them and drawing them.  There are hundreds that I haven't even ever programmed in, actually.  And probably hundreds that I've never seen or heard of."),
+                         gp("So there are hundreds."),
+                         p("There are hundreds.")
+                     ]
+                 ]},
+                {id:1,label:"Javascript",
+                 content:[
+                     [
+                         t("JavaScript"),
+                         i(9),
+                         t("It's everywhere.  It ships with the JVM.  It's native to .Net.  It's in every web browser.  It's simple.  It's fast.  You can write a web server in it."),
+                         t("Usually when a language is called 'script' it means you can just hand it straight to a machine to use.  You don't need to do any preparation on it first.  Like an icecream you can just unwrap and eat, instead of fish fingers which you need to cook first."),
+                         t("In Javascript you make lots of little machines that each do something.  They might listen for you to press a key.  They might do maths for you.  They might make another machine."),
+                         t("The machines are called functions.  Function is a word that means 'to do something', or 'what I do'."),
+                         t("A function is a machine that has a hole in one side that you put something into.  Then something comes out of the hole on the other side."),
+                         t("Here's one:  One side takes a number.  What comes out the other side will be a number twice as big."),
+                         i(10),
+                         t("Let's call this 'Double'"),
+                         t("Now that we've given it a name we can use it.  I put in 3.  I got 6 back out.  Then I put in 9 to see what would happen.")
+                     ],
+                     [
+                         t("Machines can make other machines.  A more technical way to say this is to say 'functions can return functions'."),
+                         t("Here's one.  It's going to make machines to multiply numbers."),
+                         i(11),
+                         t("var doubler = multiplier(2);"),
+                         t("var tripler = multiplier(3);"),
+                         t("doubler(4) = 8"),
+                         t("tripler(4) = 12")
+                     ]
+                 ],
+                 comments:[
+                     [
+                         gp("Why is Javascript Spiderman?  Oh..."),
+                         p("Tee hee!"),
+                         gp("The web.  It's because the web."),
+                         gp("Oh, Dad.")
+                     ]
+                 ]},
+                {id:2,label:"Functions",
+                 content:[
+                     [
+                         t("'var' is a word that attaches meaning to a name.  So 'doubler' now means something.  It means the function we made with multipler(2).  The function that the multiplier machine gives you when you put '2' into the side."),
+                         t("But won't we run out of names?"),
+                         t("Names only mean something in a particular space. So when you're in your house, 'the TV' means one thing.  But when someone in a movie says 'turn off the TV', they're talking about something else.  It's a different one."),
+                         t("That's what these mean: {...}")
+                     ]
+                 ],
+                 comments:[
+                     [
+                         gp("Like, the squiggly things?"),
+                         p("Yes.  These: { }.  They indicate a scope.  That is, a place where names make sense."),
+                         gp("What do you mean?"),
+                         p("Like, you know how there's a Victoria in Australia and there's a Victoria in Africa?"),
+                         gp("And the Queen?"),
+                         p("Yes.  And the Queen.  So each time someone says Victoria, you need to know where they want you to be thinking of.  Whether it's Africa, or Canada..."),
+                         gp("Or Queens."),
+                         p("Yes.  Or Queens.")
+                     ]
+                 ]},
+                {id:3,label:"Web functions",content:[
                     [
-                        gp("You said there were hundreds."),
-                        p("I've been pretty restrained about listing them and drawing them.  There are hundreds that I haven't even ever programmed in, actually.  And probably hundreds that I've never seen or heard of."),
-                        gp("So there are hundreds."),
-                        p("There are hundreds.")
+                        t("Can we do anything but double numbers?"),
+                        t("Try this one:"),
+                        i(12),
+                        t("That's right, it's the web server from Chapter 1."),
+                        t("We can use functions to turn easy things into hard things.  We do this by building little pieces up into bigger pieces, and then using the bigger pieces to solve problems."),
+                        t("If you ever had to build an axe, and you were on a desert island, you would start by building a fire.  Then you would use the fire to build the tools to build a forge.  Then you would use the forge to build the tools to build the axe.  Then you would build the axe."),
+                        t("But it's very difficult to go from coconuts to axes in one step."),
+                        t("Let's try building some maths.  Maths is a very good example because all the hard bits are made of easy bits stacked together."),
+                        t("We will need some little building blocks:"),
+                        i(13),
+                        t("2 + 2 = 4"),
+                        t("2 - 1 = 1"),
+                        t("0 = 0"),
+                        t("We can use these to build multiplication, also called 'times'.  Multiplication is spelt 'X', or '*' on a computer.  It means 'groups of'.  Three multiplied by four is like three groups of four.  Or two times five is how many fingers you probably have, counting thumbs."),
+                        t("Even though your computer already knows how to do multiplication, we can build multiplication out of pieces that don't.  That's how they built it into your computer in the first place.")
+                    ]
+                ],comments:[]},
+                {id:4,label:"Multiplication",
+                 content:[
+                     [
+                         i(14),
+                         t("Or in another, more sophisticated, language:"),
+                         i(15),
+                         t("They're quite diffferent ways of thinking."),
+                         t("But only the top one is JavaScript.  The bottom one is better at talking about numbers, but we don't only want to talk about numbers.")
+                     ]
+                 ],
+                 comments:[
+                     [
+                         gp("What language is that other one?"),
+                         p("I'd say it's Erlang, except I'm not sure about variable arity on a function."),
+                         gp("..."),
+                         p("Uh...  About Chapter 8?  I think?")
+                     ]
+                 ]},
+                {id:5,label:"More functions",content:[
+                    [
+                        t("Another, very important thing about JavaScript functions is that they are closures."),
+                        t("To explain what that means, let's revisit scope.  Did you ever address a letter like this?"),
+                        i(16),
+                        t("All those lines under 'my dad' are scopes.  Without them, it could mean any of the billions of people on Earth who answer to 'dad'.  (Especially those who aren't too picky about capitalisation"),
+                        t("Let's see what this means to a function:"),
+                        i(17),
+                        t("When the person you call 'dad' gets your letter, they will be able to see all the things in 'Victoria', and all the things in 'Australia'.  They will call Australian Rules Football 'football', and will call 'football' soccer.  They will sit in the front seat of a taxi, and will tell you that only trucks have cabs.  These are all the meanings that these words have in Australia.  They will, with a high degree of probability, know the difference between a knife and a spoon.  At the very least they will be able to pretend long enough for a game of 'knifey-spooney'."),
+                        t("When the function you call 'doubler' gets your letter, it will be able to see all the things around it, in the same way.  All the meanings that are special to that part of your program will be the meanings that it uses.")
+                    ]
+                ],comments:[
+                    [
+                        gp("Why are they called 'closures'?"),
+                        p("Because they 'close over' scope."),
+                        gp("What does that mean?"),
+                        p("It means that when they're made, they take a picture of what's around them.  They take a picture of the scope."),
+                        gp("They should be called 'cameras'."),
+                        p("You know?  They sort of should.  Want to call them cameras?"),
+                        l("It's like a code!"),
+                        p("Exactly.")
                     ]
                 ]},
-                {id:1,label:"Javascript",comments:[
+                {id:6,label:"Scope",content:[
                     [
-                        gp("Why is Javascript Spiderman?  Oh..."),
-                        p("Tee hee!"),
-                        gp("The web.  It's because the web."),
-                        gp("Oh, Dad.")
+                        t("Let's look at another way to do doubling, remembering that the machine will be able to see all the things around it."),
+                        i(18),
+                        t("See the var 'multiplier'?  It has a value of 2.  That means that any time anyone looks at it, they'll see 2.  This is important to our new way of doing doubling, which wants to give back a function which looks at the multiplier var."),
+                        t("This gives us an enormous range of powers, just from these three simple things:"),
+                        t("1: Functions take things and give things back."),
+                        t("2: Functions can take or give back other functions."),
+                        t("3: Functions can see what's around them.")
                     ]
-                ]},
-                {id:2,label:"Functions",comments:[
+                ],comments:[
                     [
-                        gp("Like, the squiggly things?"),
-                        p("Yes.  These: { }.  They indicate a scope.  That is, a place where names make sense."),
-                        gp("What do you mean?"),
-                        p("Like, you know how there's a Victoria in Australia and there's a Victoria in Africa?"),
-                        gp("And the Queen?"),
-                        p("Yes.  And the Queen.  So each time someone says Victoria, you need to know where they want you to be thinking of.  Whether it's Africa, or Canada..."),
-                        gp("Or Queens."),
-                        p("Yes.  Or Queens.")
+                        gp("What sort of powers?"),
+                        p("Well, it lets us do a lot without saying anything.  Like, if I said 'go buy your mum that perfume she likes', you'd know what it was without me telling you, right?"),
+                        gp("Yes, because she's my mum.  She doesn't like perfume."),
+                        p("Uh...  Right.  Alright, so something she likes."),
+                        gp("Okay.  So you tell me to go buy a book she'll like?"),
+                        p("Sure.  That will work.  So imagine I make a card which says 'Go buy your mum a book she likes.  What are you going to buy?"),
+                        gp("Ice cream."),
+                        p("Imagine you HAVE to do what's written on the card."),
+                        gp("Can I have a pen?"),
+                        p("You can't have a pen and write 'buy ice cream' on the card."),
+                        gp("You sure have a lot of rules for someone who won't even buy their own wife a birthday present."),
+                        p("Do you want some icecream?"),
+                        gp("Later.  Okay, so I'm buying a book."),
+                        p("Because the card told you to."),
+                        gp("Because the card told me to.  Now what?"),
+                        p("Now you give the card to someone else."),
+                        gp("Right.  And they buy their mum a book."),
+                        p("Yes.  So why do they buy THEIR mum and not YOUR mum a book?"),
+                        gp("Because the card said 'buy your mum a book' and my mum isn't their mum."),
+                        p("So the function had a different impact because it was in a different context, and the word 'mum' had a different value to them."),
+                        gp("What if they had two mums?"),
+                        p("Then they might find the card too vague to follow because it didn't say which mum.  That's why programming is so hard.  Because there are so many different ways to interpret meanings.")
                     ]
-                ]},
-                {id:3,label:"Web functions",comments:[]},
-                {id:4,label:"Multiplication",comments:[
-                    [
-                        gp("What language is that other one?"),
-                        p("I'd say it's Erlang, except I'm not sure about variable arity on a function."),
-                        gp("..."),
-                        p("Uh...  About Chapter 8?  I think?")
-                    ]
-                ]},
-                {id:5,label:"More functions"},
-                {id:6,label:"Scope"},
-                {id:7,label:"Function state"}
+                ]}
             ]
         },
         {
@@ -292,101 +425,103 @@ var stories = (function(){
                 {id:0,label:"Batgirl comes back",comments:[]}
             ]
         },
-        {
-            id:6,
-            ch:37,
-            label:"Monads",
-            pages:[
-                {id:0,label:"1",comments:[
-                    [
-                        gp("What is this FOR?"),
-                        p("It's for when you want the same line of code to do different things depending what's around it.  It sort of makes programming three dimensional."),
-                        gp("Is programming two dimensional normally?"),
-                        p("Well, it goes across as you write more words and it goes down as you write more lines."),
-                        gp("Didn't you say that the newline thingy was just another character?  Isn't it all in one line?  Is that still two dimensional?"),
-                        p("Uh...  Um.  You're right, actually.  Yes.  It's one dimensional normally.  So Monads are...  Um...  Two dimensional?"),
-                        gp("Dad?  You can say three dimensional if you want to.  Don't be sad."),
-                        p("Thanks, honey.")
-                    ]
-                ]},
-                {id:1,label:"2",comments:[
-                    [
-                        gp("What does f(a) mean?"),
-                        p("f is the name of a general function - so if you see something called 'f' somewhere, it usually means 'the function we're talking about'."),
-                        gp("Sort of like 'it'?"),
-                        p("A bit like that.  But it's more like 'A man walks into a bar'."),
-                        gp("Which man?"),
-                        p("Any man."),
-                        gp("So it's any function?"),
-                        p("It just sort of points at a function if there's one around - it's in an unspecified namespace."),
-                        gp("So it's a symbol you're assuming would have a binding if we were really talking about code."),
-                        p("Wow.  I should have just said that."),
-                        gp("I don't know why you didn't just say that.")
-                    ]
-                ]},
-                {id:2,label:"3",comments:[
-                    [
-                        gp("What's traversal?"),
-                        p("It's when you go through something.  Like, if I took you on a tour of my house."),
-                        gp("Yes?"),
-                        p("I'd show you the bits I wanted you to see, right?"),
-                        gp("Not your bedroom."),
-                        p("Not my bedroom."),
-                        gp("Because it's too messy."),
-                        p("Because it's too...  Never mind why.")
-                    ]
-                ]},
-                {id:3,label:"4",comments:[
-                    [
-                        gp("Why is throw not a value?"),
-                        p("I'm actually not completely sure about that one.  I'm pretty sure I've seen people say that you can desugar exceptions to values.  They have to be passed through until a handler claims them, is all."),
-                        gp("What's desugar?"),
-                        p("It's when you peel off the special language so that you can just do the basic stuff that's going on."),
-                        gp("Like when we wrote times with plus?"),
-                        p("Yes.")
-                    ]
-                ]},
-                {id:4,label:"5",comments:[
-                    [
-                        gp("What's all that stuff?"),
-                        p("{{this}}?"),
-                        gp("Yeah, {{that}}."),
-                        p("It's a markup language called handlebars, which is an extension of a markup language called mustache."),
-                        gp("It sort of looks like a mustache."),
-                        p("I think that's why they called it that."),
-                        gp("I know.  That's what I was saying."),
-                        p("Sorry.")
-                    ]
-                ]},
-                {id:5,label:"6",comments:[
-                    [
-                        gp("What's mockable?"),
-                        p("It means I can make a fake one easily to put in my tests.")
-                    ]
-                ]
-                }
-            ]
-        },
-        {
-            id:7,
-            ch:6,
-            label:"Collision Detection",
-            pages:[
-                {id:0},
-                {id:1}
-            ]
-        },
-        {
-            id:8,
-            ch:5,
-            label:"How games work",
-            pages:[
-                {id:0,label:"Game 1"},
-                {id:1,label:"Game 2"},
-                {id:2,label:"Game 3"},
-                {id:3,label:"Game 4"}
-            ]
-        }
+        /*
+         {
+         id:6,
+         ch:37,
+         label:"Monads",
+         pages:[
+         {id:0,label:"1",comments:[
+         [
+         gp("What is this FOR?"),
+         p("It's for when you want the same line of code to do different things depending what's around it.  It sort of makes programming three dimensional."),
+         gp("Is programming two dimensional normally?"),
+         p("Well, it goes across as you write more words and it goes down as you write more lines."),
+         gp("Didn't you say that the newline thingy was just another character?  Isn't it all in one line?  Is that still two dimensional?"),
+         p("Uh...  Um.  You're right, actually.  Yes.  It's one dimensional normally.  So Monads are...  Um...  Two dimensional?"),
+         gp("Dad?  You can say three dimensional if you want to.  Don't be sad."),
+         p("Thanks, honey.")
+         ]
+         ]},
+         {id:1,label:"2",comments:[
+         [
+         gp("What does f(a) mean?"),
+         p("f is the name of a general function - so if you see something called 'f' somewhere, it usually means 'the function we're talking about'."),
+         gp("Sort of like 'it'?"),
+         p("A bit like that.  But it's more like 'A man walks into a bar'."),
+         gp("Which man?"),
+         p("Any man."),
+         gp("So it's any function?"),
+         p("It just sort of points at a function if there's one around - it's in an unspecified namespace."),
+         gp("So it's a symbol you're assuming would have a binding if we were really talking about code."),
+         p("Wow.  I should have just said that."),
+         gp("I don't know why you didn't just say that.")
+         ]
+         ]},
+         {id:2,label:"3",comments:[
+         [
+         gp("What's traversal?"),
+         p("It's when you go through something.  Like, if I took you on a tour of my house."),
+         gp("Yes?"),
+         p("I'd show you the bits I wanted you to see, right?"),
+         gp("Not your bedroom."),
+         p("Not my bedroom."),
+         gp("Because it's too messy."),
+         p("Because it's too...  Never mind why.")
+         ]
+         ]},
+         {id:3,label:"4",comments:[
+         [
+         gp("Why is throw not a value?"),
+         p("I'm actually not completely sure about that one.  I'm pretty sure I've seen people say that you can desugar exceptions to values.  They have to be passed through until a handler claims them, is all."),
+         gp("What's desugar?"),
+         p("It's when you peel off the special language so that you can just do the basic stuff that's going on."),
+         gp("Like when we wrote times with plus?"),
+         p("Yes.")
+         ]
+         ]},
+         {id:4,label:"5",comments:[
+         [
+         gp("What's all that stuff?"),
+         p("{{this}}?"),
+         gp("Yeah, {{that}}."),
+         p("It's a markup language called handlebars, which is an extension of a markup language called mustache."),
+         gp("It sort of looks like a mustache."),
+         p("I think that's why they called it that."),
+         gp("I know.  That's what I was saying."),
+         p("Sorry.")
+         ]
+         ]},
+         {id:5,label:"6",comments:[
+         [
+         gp("What's mockable?"),
+         p("It means I can make a fake one easily to put in my tests.")
+         ]
+         ]
+         }
+         ]
+         },
+         {
+         id:7,
+         ch:6,
+         label:"Collision Detection",
+         pages:[
+         {id:0},
+         {id:1}
+         ]
+         },
+         {
+         id:8,
+         ch:5,
+         label:"How games work",
+         pages:[
+         {id:0,label:"Game 1"},
+         {id:1,label:"Game 2"},
+         {id:2,label:"Game 3"},
+         {id:3,label:"Game 4"}
+         ]
+         }
+         */
     ];
     _.forEach(chapters,function(c){
         c.chapter = c.ch+".";
