@@ -8,8 +8,8 @@ var path = require('path');
 function decorate(req,args,res){
     var technicalMode = req.cookies.technicalMode;
     switch(req.query.technicalMode){
-	case "0": technicalMode = 0; break;
-	case "1": technicalMode = 1; break;
+    case "0": technicalMode = 0; break;
+    case "1": technicalMode = 1; break;
     }
     res.cookie('technicalMode', technicalMode);
     args.technicalMode = technicalMode == 1;
@@ -30,6 +30,11 @@ router.get('/', function(req,res) {
 router.get('/about', function(req,res) {
     res.render('about',decorate(req,{
         about:true
+    },res));
+});
+router.get('/faq', function(req,res) {
+    res.render('faq',decorate(req,{
+	faq:db.faq
     },res));
 });
 router.get('/demos', function(req,res) {

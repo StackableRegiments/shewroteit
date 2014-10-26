@@ -536,5 +536,24 @@ var stories = (function(){
     return _.sortBy(chapters,"ch");
 })();
 
+var faq = [
+    {
+        q:"Who is this for?",
+        a:"Parents who would like to find out about programming with their children."
+    },
+    {
+        q:"Why did you stop writing everything by hand?",
+        a:"I was having a lot of trouble editing it, and when people said they couldn't understand something I wanted to be able to try to explain it again.  Also, I thought it was hard to read on a phone, and a lot of my readers turn out to be on phones."
+    },
+    {
+	q:"Is Girl Purple a real person?  Is she as smart as she sounds?",
+	a:"Yes and yes.  They're all real people.  But because it's the internet we didn't think it was a great idea to use their real names.  But they really do ask these questions."
+    },
+    {
+	q:"What is this built in?",
+	a:"Node.js, running on an Amazon stack.  It's a very simple setup with a flat file database.  It didn't need anything more complex than that.  Oh, also a brown pen."
+    }
+];
+exports.faq = faq;
 exports.demos = demos;
 exports.stories = stories;
