@@ -143,7 +143,7 @@ var stories = (function(){
                  content:[
                      [
                          t("[\\n] is a code."),
-                         t("A code has a special meaning.  You might have a code with your friend where you say 'book' instead of 'horse' because it's funny to say you went riding on a book."),                        t("But you both know what you really mean.  When you say [\n] to a computer, it means 'pick up your pen and move down to the next line.  Then start writing again'."),
+                         t("A code has a special meaning.  You might have a code with your friend where you say 'book' instead of 'horse' because it's funny to say you went riding on a book."),                        t("But you both know what you really mean.  When you say [\\n] to a computer, it means 'pick up your pen and move down to the next line.  Then start writing again'."),
                          i(0),
                          t("Like[\\n]"),
                          t("this.[\\n]"),
