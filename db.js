@@ -171,19 +171,27 @@ var stories = (function(){
                          i(1)
                      ]
                  ],
-                 /*
-                  comments:[
-                  [
-                  gp("Lambda?"),
-                  p("Yes.  What about it?"),
-                  gp("What is it?"),
-                  p("Lambda is a letter in the Greek alphabet.  What it means in programming is a function that you can pass around.  Do you remember what a function is?"),
-                  gp("Yes.  It's when one thing goes in and comes out another thing."),
-                  p("Or the same thing.  It's a machine where something goes in and something comes out.  Can you think of any functions?"),
-                  gp("A?  Isn't A a function?"),
-                  p("Not in any of the languages I know.  It could be the NAME of a function, but it isn't itself a function.  It sounds more like a symbol.  Addition is a function.  It takes some numbers and gives back a number which is all of them added together.")
-                  ]
-                  ]*/},
+                 comments:[
+                     [
+			 gp("Lambda?"),
+			 p("Did I say lambda?"),
+			 gp("You're always saying lambda.  It was weird when you didn't say it."),
+			 p("Lambda is a letter in the Greek alphabet.  What it means in programming is a function that you can pass around.  Do you remember what a function is?"),
+			 gp("Yes.  It's when one thing goes in and comes out another thing."),
+			 p("Or the same thing.  It's a machine where something goes in and something comes out.  Can you think of any functions?"),
+			 gp("A?  Isn't A a function?"),
+			 p("Not in any of the languages I know.  It could be the NAME of a function, but it isn't itself a function.  It sounds more like a symbol.  Addition is a function.  It takes some numbers and gives back a number which is all of them added together.  We're going to talk about how to build some functions in Chapter 4."),
+			 gp("So we're going to build lambdas?"), 
+			 p("We are."),
+			 gp("Why is it named after a letter in the thingummy alphabet?"),
+			 p("I think it might be a bit of a tribute to some early thinking that was done by the Greeks.  In fact, it might even be a leftover from then.  But I think it was invented by Alonzo Church and I don't think he was Greek.  Maybe it's because things that need names in maths tend to pick up on Greek symbols because so many of the others are."),
+			 gp("What others?"),
+			 p("Pi, for instance."),
+			 gp("That's the number that goes on forever?"),
+			 p("Possibly.  It would be hard to prove that.  It's a number that we haven't so far found to repeat.")
+                     ]
+                 ]
+                },
                 {id:2,label:"More code",
                  content:[
                      [
@@ -546,20 +554,20 @@ var faq = [
         a:"We were having a lot of trouble editing it, and when people said they couldn't understand something we wanted to be able to try to explain it again.  Also, people told us it was hard to read on a phone"
     },
     {
-	q:"Is Girl Purple a real person?  Is she as smart as she sounds?",
-	a:"Yes and yes.  They're all real people.  But because it's the internet we didn't think it was a great idea to use their real names.  But they really do ask these questions."
+        q:"Is Girl Purple a real person?  Is she as smart as she sounds?",
+        a:"Yes and yes.  They're all real people.  But because it's the internet we didn't think it was a great idea to use their real names.  But they really do ask these questions."
     },
     {
-	q:"What is this built in?",
-	a:"Node.js, running on an Amazon stack.  It's a very simple setup with a flat file database.  It didn't need anything more complex than that.  Oh, also a brown pen."
+        q:"What is this built in?",
+        a:"Node.js, running on an Amazon stack.  It's a very simple setup with a flat file database.  It didn't need anything more complex than that.  Oh, also a brown pen."
     },
     {
-	q:"Where did the other chapters go?",
-	a:"They were just there as an early preview.  Once we got the first round of feedback we took them down so we could concentrate on the first few chapters."
+        q:"Where did the other chapters go?",
+        a:"They were just there as an early preview.  Once we got the first round of feedback we took them down so we could concentrate on the first few chapters."
     },
     {
-	q:"My link to the Monads chapter doesn't work any more!",
-	a:"Sorry, Alan."
+        q:"My link to the Monads chapter doesn't work any more!",
+        a:"Sorry, Alan."
     }
 ];
 exports.faq = faq;
