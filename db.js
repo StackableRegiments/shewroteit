@@ -293,14 +293,14 @@ var stories = (function(){
                  ],
                  comments:[
                      [
-			 gp("Tell them what the JVM is."),
-			 p("You tell them what the JVM is."),
-			 gp("It's the platform that Java runs on?"),
-			 p("Yep.  And .Net has a platform that C# and VB.Net and F# run on."),
-			 gp("It can do three languages?"),
-			 p("It can do hundreds of languages."),
-			 gp("Hundreds?"),
-			 p("Hundreds.  So can Java."),
+                         gp("Tell them what the JVM is."),
+                         p("You tell them what the JVM is."),
+                         gp("It's the platform that Java runs on?"),
+                         p("Yep.  And .Net has a platform that C# and VB.Net and F# run on."),
+                         gp("It can do three languages?"),
+                         p("It can do hundreds of languages."),
+                         gp("Hundreds?"),
+                         p("Hundreds.  So can Java."),
                          gp("Why is Javascript Spiderman?  Oh..."),
                          p("Tee hee!"),
                          gp("The web.  It's because the web."),
@@ -426,19 +426,45 @@ var stories = (function(){
                 ]},
                 {
                     id:7,label:"Anatomy of a function",content:[
-			[
-			    t("That went past awfully quickly, didn't it?  Let's go through it again a bit more slowly."),
-			    t("You know how there's a skeleton inside a person?  And you can label all the pieces?  We can use this to help us understand how people are put together.  A doctor has thousands more names for the very little pieces of detail, but these are the pieces we need so our drawings don't look too silly."),
-			    ci(19),
-			    t("Let's look at the same pieces of a function.  We've talked about how things go in and come out, now let's look at the words that we use to build that."),
-			    ci(20),
-			    t("(1) the word 'function' tells us that we're about to describe a machine."),
-			    t("(2) the ( and ) are the hole that you put things into.  You give them a name.  So here, I've called them 'things coming in'."),
-			    t("(3) the { starts a scope.  So I'm describing a place where names are going to make sense.  It's like if I said 'I'm talking about my family now', you would know that if I said 'Dad' I was talking about someone who I called Dad inside my family."),
-			    t("(4) these things are inside the scope.  You can see some actions, which are able to use the things that were put into the function, and the things that are around the function."),
-			    t("(5) the word 'return' means this is the hole that things come out of.  So the thing that comes after 'return' is being pushed out of the hole.  Here, I've pushed out the thing called 'things going out'."),
-			    t("6) the } ends the scope.  So it's like saying 'I'm not talking about my family anymore'.  Now if you hear me say 'Dad', you have to ask me, 'Whose Dad?'")
-			]
+                        [
+                            t("That went past awfully quickly, didn't it?  Let's go through it again a bit more slowly."),
+                            t("You know how there's a skeleton inside a person?  And you can label all the pieces?  We can use this to help us understand how people are put together.  A doctor has thousands more names for the very little pieces of detail, but these are the pieces we need so our drawings don't look too silly."),
+                            ci(19),
+                            t("Let's look at the same pieces of a function.  We've talked about how things go in and come out, now let's look at the words that we use to build that."),
+                            ci(20),
+                            t("(1) the word 'function' tells us that we're about to describe a machine."),
+                            t("(2) the ( and ) are the hole that you put things into.  You give them a name.  So here, I've called them 'things coming in'."),
+                            t("(3) the { starts a scope.  So I'm describing a place where names are going to make sense.  It's like if I said 'I'm talking about my family now', you would know that if I said 'Dad' I was talking about someone who I called Dad inside my family."),
+                            t("(4) these things are inside the scope.  You can see some actions, which are able to use the things that were put into the function, and the things that are around the function."),
+                            t("(5) the word 'return' means this is the hole that things come out of.  So the thing that comes after 'return' is being pushed out of the hole.  Here, I've pushed out the thing called 'things going out'."),
+                            t("6) the } ends the scope.  So it's like saying 'I'm not talking about my family anymore'.  Now if you hear me say 'Dad', you have to ask me, 'Whose Dad?'")
+                        ]
+                    ],
+                    comments:[
+                        [
+                            gp("Do all functions look like that?"),
+                            p("Let's say yes.  Let's say that Javascript functions all have that structure."),
+                            gp("But it doesn't have a name."),
+                            p("Ah.  That is an excellent point.  Um...  When I said yes?  I actually meant sometimes.  What I showed you was a lambda."),
+                            gp("This again?"),
+                            p("This again.  This lambda was a function, but it didn't have a name yet.  Do you remember how to give something a name?"),
+                            l("You call it?"),
+                            p("Ha.  That's brilliant.  That would make total sense, wouldn't it?  Weirdly, it's not called 'calling it'.  It's binding it in a namespace."),
+                            l("Oh.  How do you do that?"),
+                            p("You do it with the word 'var'.  That means, 'give me two things: a name, and a thing.  I'll call the thing the name'."),
+                            l("It IS calling!"),
+                            p("It is binding a name.  Okay, you know how there are different words for the same thing in different languages?"),
+                            gp("Yes, like 'toilet' is 'gabinetto' in Italian."),
+                            p("Yes, and it's still a toilet.  That's binding.  It means that in Italy that thing is called el gabinetto and in Australia it's called the toilet."),
+                            l("My friend calls it something else."),
+                            p("I'm not sure I want to know what your friend calls it."),
+			    gp("So binding?"),
+			    p("So, binding.  What we constructed was a lambda.  To give it a name, we need to bind it to one.  We do this with a sentence that starts out 'var name = function...'"),
+			    gp("Is that the only way?"),
+			    p("It's a good way.  I'm hoping to get into syntactic sugar at some point."),
+			    l("I want syntactic sugar!"),
+			    gp("She's only pretending not to understand because she thinks it's cute.")
+                        ]
                     ]
                 }
             ]
