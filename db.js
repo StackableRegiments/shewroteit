@@ -66,6 +66,37 @@ var demos = (function(){
 })();
 var stories = (function(){
     var chapters = [
+	{
+	    id:10,
+	    ch:0,
+	    label:"Foreword",
+	    pages:[
+		{
+		    id:0,label:"Foreword",
+		    content:[
+			[
+			    t("This is a work in progress."),
+			    t("It would have to be, because the other two things that it is are parenting and programming.  And neither of those is a job that you ever finish."),
+			    t("The authors of this book are, variously, software architects working in the tertiary education sector, home schoolers, amateur everythings, half baked experts and little girls."),
+			    t("If you're a little girl reading this book, we hope you go from here onto greater, harder things and never stop."),
+			    t("If you're a parent reading this with your kids, we hope you can find things to talk about, even if you have to skip over some of the complicated bits.  We hope there's something on every page for somebody, even if it's just a picture."),
+			    t("If you're an expert programmer we hope that you'll be sufficiently outraged by the inaccuracies in every page to go and tell someone the right answers.  Send us a link if you do!"),
+			    t("Most of all, whoever you are, if something looks too hard or too complicated, skip it and keep going!  The next chapter might not be about programming at all, and some of those chapters are the best of all.")
+			]
+		    ],
+		    comments:[
+			[
+			    l("Aren't you going to tell them who we are?"),
+			    p("I'm hoping that if they're interested they'll go look that up in the 'About Us' section."),
+			    gp("Can we get on with it now?  What are we going to tell them first?"),
+			    p("We can either do a comic or tell them about web sites."),
+			    l("Let's do both!"),
+			    p("Or we could do both.")
+			]
+		    ]
+		}
+	    ]
+	},
         {
             id:0,
             ch:1,
