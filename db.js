@@ -22,6 +22,11 @@ var i = function(id){
         id:id
     };
 }
+var ci = function(id){
+    var a = i(id);
+    a.class = "comic";
+    return a;
+}
 var old = function(id){
     return [[{
         image:true,
@@ -173,22 +178,22 @@ var stories = (function(){
                  ],
                  comments:[
                      [
-			 gp("Lambda?"),
-			 p("Did I say lambda?"),
-			 gp("You're always saying lambda.  It was weird when you didn't say it."),
-			 p("Lambda is a letter in the Greek alphabet.  What it means in programming is a function that you can pass around.  Do you remember what a function is?"),
-			 gp("Yes.  It's when one thing goes in and comes out another thing."),
-			 p("Or the same thing.  It's a machine where something goes in and something comes out.  Can you think of any functions?"),
-			 gp("A?  Isn't A a function?"),
-			 p("Not in any of the languages I know.  It could be the NAME of a function, but it isn't itself a function.  It sounds more like a symbol.  Addition is a function.  It takes some numbers and gives back a number which is all of them added together.  We're going to talk about how to build some functions in Chapter 4."),
-			 gp("So we're going to build lambdas?"), 
-			 p("We are."),
-			 gp("Why is it named after a letter in the thingummy alphabet?"),
-			 p("I think it might be a bit of a tribute to some early thinking that was done by the Greeks.  In fact, it might even be a leftover from then.  But I think it was invented by Alonzo Church and I don't think he was Greek.  Maybe it's because things that need names in maths tend to pick up on Greek symbols because so many of the others are."),
-			 gp("What others?"),
-			 p("Pi, for instance."),
-			 gp("That's the number that goes on forever?"),
-			 p("Possibly.  It would be hard to prove that.  It's a number that we haven't so far found to repeat.")
+                         gp("Lambda?"),
+                         p("Did I say lambda?"),
+                         gp("You're always saying lambda.  It was weird when you didn't say it."),
+                         p("Lambda is a letter in the Greek alphabet.  What it means in programming is a function that you can pass around.  Do you remember what a function is?"),
+                         gp("Yes.  It's when one thing goes in and comes out another thing."),
+                         p("Or the same thing.  It's a machine where something goes in and something comes out.  Can you think of any functions?"),
+                         gp("A?  Isn't A a function?"),
+                         p("Not in any of the languages I know.  It could be the NAME of a function, but it isn't itself a function.  It sounds more like a symbol.  Addition is a function.  It takes some numbers and gives back a number which is all of them added together.  We're going to talk about how to build some functions in Chapter 4."),
+                         gp("So we're going to build lambdas?"),
+                         p("We are."),
+                         gp("Why is it named after a letter in the thingummy alphabet?"),
+                         p("I think it might be a bit of a tribute to some early thinking that was done by the Greeks.  In fact, it might even be a leftover from then.  But I think it was invented by Alonzo Church and I don't think he was Greek.  Maybe it's because things that need names in maths tend to pick up on Greek symbols because so many of the others are."),
+                         gp("What others?"),
+                         p("Pi, for instance."),
+                         gp("That's the number that goes on forever?"),
+                         p("Possibly.  It would be hard to prove that.  It's a number that we haven't so far found to repeat.")
                      ]
                  ]
                 },
@@ -272,14 +277,14 @@ var stories = (function(){
                          t("The machines are called functions.  Function is a word that means 'to do something', or 'what I do'."),
                          t("A function is a machine that has a hole in one side that you put something into.  Then something comes out of the hole on the other side."),
                          t("Here's one:  One side takes a number.  What comes out the other side will be a number twice as big."),
-                         i(10),
+                         ci(10),
                          t("Let's call this 'Double'"),
                          t("Now that we've given it a name we can use it.  I put in 3.  I got 6 back out.  Then I put in 9 to see what would happen.")
                      ],
                      [
                          t("Machines can make other machines.  A more technical way to say this is to say 'functions can return functions'."),
                          t("Here's one.  It's going to make machines to multiply numbers."),
-                         i(11),
+                         ci(11),
                          t("var doubler = multiplier(2);"),
                          t("var tripler = multiplier(3);"),
                          t("doubler(4) = 8"),
@@ -288,6 +293,14 @@ var stories = (function(){
                  ],
                  comments:[
                      [
+			 gp("Tell them what the JVM is."),
+			 p("You tell them what the JVM is."),
+			 gp("It's the platform that Java runs on?"),
+			 p("Yep.  And .Net has a platform that C# and VB.Net and F# run on."),
+			 gp("It can do three languages?"),
+			 p("It can do hundreds of languages."),
+			 gp("Hundreds?"),
+			 p("Hundreds.  So can Java."),
                          gp("Why is Javascript Spiderman?  Oh..."),
                          p("Tee hee!"),
                          gp("The web.  It's because the web."),
@@ -319,14 +332,14 @@ var stories = (function(){
                     [
                         t("Can we do anything but double numbers?"),
                         t("Try this one:"),
-                        i(12),
+                        ci(12),
                         t("That's right, it's the web server from Chapter 1."),
                         t("We can use functions to turn easy things into hard things.  We do this by building little pieces up into bigger pieces, and then using the bigger pieces to solve problems."),
                         t("If you ever had to build an axe, and you were on a desert island, you would start by building a fire.  Then you would use the fire to build the tools to build a forge.  Then you would use the forge to build the tools to build the axe.  Then you would build the axe."),
                         t("But it's very difficult to go from coconuts to axes in one step."),
                         t("Let's try building some maths.  Maths is a very good example because all the hard bits are made of easy bits stacked together."),
                         t("We will need some little building blocks:"),
-                        i(13),
+                        ci(13),
                         t("2 + 2 = 4"),
                         t("2 - 1 = 1"),
                         t("0 = 0"),
@@ -337,9 +350,9 @@ var stories = (function(){
                 {id:4,label:"Multiplication",
                  content:[
                      [
-                         i(14),
+                         ci(14),
                          t("Or in another, more sophisticated, language:"),
-                         i(15),
+                         ci(15),
                          t("They're quite diffferent ways of thinking."),
                          t("But only the top one is JavaScript.  The bottom one is better at talking about numbers, but we don't only want to talk about numbers.")
                      ]
@@ -356,10 +369,10 @@ var stories = (function(){
                     [
                         t("Another, very important thing about JavaScript functions is that they are closures."),
                         t("To explain what that means, let's revisit scope.  Did you ever address a letter like this?"),
-                        i(16),
+                        ci(16),
                         t("All those lines under 'my dad' are scopes.  Without them, it could mean any of the billions of people on Earth who answer to 'dad'.  (Especially those who aren't too picky about capitalisation"),
                         t("Let's see what this means to a function:"),
-                        i(17),
+                        ci(17),
                         t("When the person you call 'dad' gets your letter, they will be able to see all the things in 'Victoria', and all the things in 'Australia'.  They will call Australian Rules Football 'football', and will call 'football' soccer.  They will sit in the front seat of a taxi, and will tell you that only trucks have cabs.  These are all the meanings that these words have in Australia.  They will, with a high degree of probability, know the difference between a knife and a spoon.  At the very least they will be able to pretend long enough for a game of 'knifey-spooney'."),
                         t("When the function you call 'doubler' gets your letter, it will be able to see all the things around it, in the same way.  All the meanings that are special to that part of your program will be the meanings that it uses.")
                     ]
@@ -378,7 +391,7 @@ var stories = (function(){
                 {id:6,label:"Scope",content:[
                     [
                         t("Let's look at another way to do doubling, remembering that the machine will be able to see all the things around it."),
-                        i(18),
+                        ci(18),
                         t("See the var 'multiplier'?  It has a value of 2.  That means that any time anyone looks at it, they'll see 2.  This is important to our new way of doing doubling, which wants to give back a function which looks at the multiplier var."),
                         t("This gives us an enormous range of powers, just from these three simple things:"),
                         t("1: Functions take things and give things back."),
@@ -410,7 +423,24 @@ var stories = (function(){
                         gp("What if they had two mums?"),
                         p("Then they might find the card too vague to follow because it didn't say which mum.  That's why programming is so hard.  Because there are so many different ways to interpret meanings.")
                     ]
-                ]}
+                ]},
+                {
+                    id:7,label:"Anatomy of a function",content:[
+			[
+			    t("That went past awfully quickly, didn't it?  Let's go through it again a bit more slowly."),
+			    t("You know how there's a skeleton inside a person?  And you can label all the pieces?  We can use this to help us understand how people are put together.  A doctor has thousands more names for the very little pieces of detail, but these are the pieces we need so our drawings don't look too silly."),
+			    ci(19),
+			    t("Let's look at the same pieces of a function.  We've talked about how things go in and come out, now let's look at the words that we use to build that."),
+			    ci(20),
+			    t("(1) the word 'function' tells us that we're about to describe a machine."),
+			    t("(2) the ( and ) are the hole that you put things into.  You give them a name.  So here, I've called them 'things coming in'."),
+			    t("(3) the { starts a scope.  So I'm describing a place where names are going to make sense.  It's like if I said 'I'm talking about my family now', you would know that if I said 'Dad' I was talking about someone who I called Dad inside my family."),
+			    t("(4) these things are inside the scope.  You can see some actions, which are able to use the things that were put into the function, and the things that are around the function."),
+			    t("(5) the word 'return' means this is the hole that things come out of.  So the thing that comes after 'return' is being pushed out of the hole.  Here, I've pushed out the thing called 'things going out'."),
+			    t("6) the } ends the scope.  So it's like saying 'I'm not talking about my family anymore'.  Now if you hear me say 'Dad', you have to ask me, 'Whose Dad?'")
+			]
+                    ]
+                }
             ]
         },
         {
