@@ -185,7 +185,7 @@ var stories = (function(){
                          gp("Yes.  It's when one thing goes in and comes out another thing."),
                          p("Or the same thing.  It's a machine where something goes in and something comes out.  Can you think of any functions?"),
                          gp("A?  Isn't A a function?"),
-                         p("Not in any of the languages I know.  It could be the NAME of a function, but it isn't itself a function.  It sounds more like a symbol.  Addition is a function.  It takes some numbers and gives back a number which is all of them added together.  We're going to talk about how to build some functions in Chapter 4."),
+                         p("Not in any of the languages I know.  It could be the NAME of a function, but it isn't itself a function.  It sounds more like a symbol.  Addition is a function.  It takes some numbers and gives back a number which is all of them added together.  We talked about this a bit in Chapter 2."),
                          gp("So we're going to build lambdas?"),
                          p("We are."),
                          gp("Why is it named after a letter in the thingummy alphabet?"),
