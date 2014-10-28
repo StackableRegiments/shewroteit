@@ -141,7 +141,7 @@ var stories = (function(){
         },
         {
             id:1,
-            ch:2,
+            ch:4,
             label:"Code",
             pages:[
                 {id:0,label:"Code",
@@ -240,7 +240,7 @@ var stories = (function(){
         },
         {
             id:5,
-            ch:4,
+            ch:2,
             label:"Prog Lang",
             pages:[
                 {id:0,label:"Overview",
@@ -277,7 +277,7 @@ var stories = (function(){
                          t("The machines are called functions.  Function is a word that means 'to do something', or 'what I do'."),
                          t("A function is a machine that has a hole in one side that you put something into.  Then something comes out of the hole on the other side."),
                          t("Here's one:  One side takes a number.  What comes out the other side will be a number twice as big."),
-                         ci(10),
+                         i(10),
                          t("Let's call this 'Double'"),
                          t("Now that we've given it a name we can use it.  I put in 3.  I got 6 back out.  Then I put in 9 to see what would happen.")
                      ],
