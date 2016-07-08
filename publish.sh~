@@ -1,0 +1,13 @@
+#Set the kube region or it will point to localhost and complain
+gcloud config set compute/zone asia-east1-a
+#Connect to the right cluster.  This contextualises further operations
+gcloud container clusters get-credentials ${1}
+
+#Build the docker image.  This builds the project as well.
+docker build -t  $VERSION .
+#Tag the image
+docker tag $VERSION $TAG
+#Upload the image to the container repository
+gcloud docker push $TAG
+
+o
