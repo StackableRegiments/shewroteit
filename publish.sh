@@ -20,4 +20,4 @@ docker build -t  $VERSION .
 #Tag the image
 docker tag $VERSION $TAG
 #Upload the image to the container repository
-gcloud docker push $TAG
+gcloud docker -- push $TAG
