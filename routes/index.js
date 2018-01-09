@@ -46,9 +46,10 @@ router.get('/demos', function(req,res) {
 router.get('/textureCompatible/:page/:image',function(req,res){
     var page = req.params.page;
     var image = req.params.image;
+    res.header("Access-Control-Allow-Origin", "*");
     sharp("public/images/pages/"+page+"/"+image+".png")
         .resize(256,256)
-	.ignoreAspectRatio()
+        .ignoreAspectRatio()
         .png()
         .pipe(res);
 });
