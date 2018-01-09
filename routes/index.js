@@ -4,6 +4,7 @@ var db = require('../db');
 var router = express.Router();
 var fs = require('fs');
 var path = require('path');
+var sharp = require('sharp');
 
 function decorate(req,args,res){
     var technicalMode = req.cookies.technicalMode;
@@ -34,13 +35,22 @@ router.get('/about', function(req,res) {
 });
 router.get('/faq', function(req,res) {
     res.render('faq',decorate(req,{
-	faq:db.faq
+        faq:db.faq
     },res));
 });
 router.get('/demos', function(req,res) {
     res.render('demos', decorate(req,{
         demos:db.demos
     },res));
+});
+router.get('/textureCompatible/:page/:image',function(req,res){
+    var page = req.params.page;
+    var image = req.params.image;
+    sharp("public/images/pages/"+page+"/"+image+".png")
+        .resize(256,256)
+	.ignoreAspectRatio()
+        .png()
+        .pipe(res);
 });
 router.get('/demo/:demo', function(req,res){
     var demoId = parseInt(req.params.demo);

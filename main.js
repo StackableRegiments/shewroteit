@@ -39,6 +39,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
     app.use(function(err, req, res, next) {
+	console.error(err);
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -48,6 +49,7 @@ app.use(function(req, res, next) {
 
 // production error handler
 // no stacktraces leaked to user
+/*
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
@@ -55,6 +57,7 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+*/
 
 
 module.exports = app;
