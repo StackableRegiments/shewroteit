@@ -21,3 +21,6 @@ docker build -t  $VERSION .
 docker tag $VERSION $TAG
 #Upload the image to the container repository
 gcloud docker -- push $TAG
+
+#Upgrade the cluster
+kubectl set image deployment/$REPOSITORY $REPOSITORY=$TAG
